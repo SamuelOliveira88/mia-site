@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Passo a passo guiado – Mi Zap e Mi.IA</title>
+<meta name="description" content="Faça junto, uma etapa de cada vez, como numa chamada: instalar a extensão, conectar o WhatsApp, ensinar a Mi.IA e fazer a primeira campanha.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1A1038">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235B3DF5'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EMi%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F5F2FB;--paper-2:#EBE6F7;--ink:#1A1038;--ink-soft:#4A4266;--violet:#5B3DF5;--violet-deep:#3F27C4;--violet-soft:#E2DBFF;--mint:#D3F5E4;--mint-ink:#0E5C3E;--coral:#FF6B57;--amber:#FFF1CC;--amber-ink:#6B4A00;--display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);font-size:19px;line-height:1.6;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;min-height:100vh}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:8px}
+h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-0.02em}
+code{font:600 .92em ui-monospace,Consolas,monospace;background:var(--paper-2);padding:2px 8px;border-radius:8px;word-break:break-all}
+.top{background:var(--ink);color:#fff;padding:14px 20px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:10}
+.logo{font:800 1.4rem var(--display);letter-spacing:-0.03em;display:flex;align-items:baseline;color:#fff;text-decoration:none}
+.logo i{width:.42em;height:.42em;border-radius:50%;background:#8E78FF;display:inline-block;margin:0 .04em}
+.top .t{color:#CFC8EA;font-weight:500;font-size:.95rem}
+.top a.l{margin-left:auto;color:#CFC8EA;font-size:.92rem}
+.wrap{max-width:760px;margin:0 auto;padding:28px 20px 90px}
+.hero h1{font-size:clamp(2rem,6vw,3rem);font-weight:800;margin-bottom:12px}
+.hero p{color:var(--ink-soft);margin-bottom:10px}
+.blocks{display:grid;gap:12px;margin:22px 0}
+.blk{display:flex;align-items:center;gap:14px;background:#fff;border:2px solid var(--paper-2);border-radius:18px;padding:16px 18px;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.blk:hover{border-color:var(--violet)}
+.blk b{font-family:var(--display);font-size:1.15rem;display:block}
+.blk small{color:var(--ink-soft);font-size:.9rem}
+.blk .n{flex:none;width:42px;height:42px;border-radius:50%;background:var(--violet-soft);color:var(--violet-deep);display:grid;place-items:center;font:800 1.1rem var(--display)}
+.blk.done .n{background:var(--mint);color:var(--mint-ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:99px;padding:15px 26px;font:700 1.05rem var(--body);cursor:pointer;background:var(--violet);color:#fff;min-height:52px}
+.btn:hover{background:var(--violet-deep)}
+.btn.sec{background:#fff;color:var(--ink);border:2px solid var(--paper-2)}
+.btn.sec:hover{border-color:var(--violet);background:#fff}
+.btn.warn{background:var(--amber);color:var(--amber-ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.stepper{display:none}
+.stepper.on{display:block}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.92rem;color:var(--ink-soft);margin-bottom:10px}
+.pbar{height:8px;border-radius:99px;background:var(--paper-2);overflow:hidden;margin-bottom:22px}
+.pbar b{display:block;height:100%;background:var(--violet);width:0;transition:width .3s}
+.card{background:#fff;border-radius:24px;padding:26px 24px;box-shadow:0 10px 30px rgba(26,16,56,.08)}
+.tag{display:inline-block;background:var(--violet-soft);color:var(--violet-deep);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;border-radius:99px;padding:4px 12px;margin-bottom:12px}
+.card h2{font-size:clamp(1.55rem,5vw,2.1rem);font-weight:800;margin-bottom:14px}
+.fala{font-size:1.12rem;margin-bottom:16px}
+.ver{background:var(--mint);color:var(--mint-ink);border-radius:16px;padding:14px 16px;margin-bottom:14px;font-size:1rem}
+.ver b,.trv b{display:block;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+.trv{background:var(--amber);color:var(--amber-ink);border-radius:16px;padding:14px 16px;margin-top:14px;font-size:1rem;display:none}
+.trv.on{display:block}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.row .btn{flex:1 1 180px}
+.ok{text-align:center}
+.ok h2{margin:10px 0}
+.end{display:none}
+.end.on{display:block}
+@media (max-width:560px){body{font-size:18px}.card{padding:22px 18px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="top"><a class="logo" href="/">Mi<i></i>IA</a><span class="t">Passo a passo guiado</span><a class="l" href="/curso">Ver o curso completo</a></div>
+<main class="wrap">
+  <section class="hero" id="home">
+    <h1>Vamos fazer juntos, uma etapa de cada vez.</h1>
+    <p>É como numa chamada: eu te digo o que fazer, você faz e aperta <b>“Fiz, próximo”</b>. Só aparece a próxima etapa quando você terminar a anterior.</p>
+    <p>Se travar, aperte <b>“Travei”</b> e eu mostro o que costuma resolver. Você pode parar e voltar depois: o sistema lembra onde você estava.</p>
+    <div class="blocks" id="blocks"></div>
+    <button class="btn" id="go">Começar do início</button>
+    <button class="btn sec" id="resume" style="display:none">Continuar de onde parei</button>
+  </section>
+
+  <section class="stepper" id="stepper" aria-live="polite">
+    <div class="meta"><span id="where"></span><button class="btn sec" id="home2" style="min-height:40px;padding:8px 16px;font-size:.9rem">Menu</button></div>
+    <div class="pbar"><b id="pb"></b></div>
+    <div class="card" id="card">
+      <span class="tag" id="tag"></span>
+      <h2 id="ttl"></h2>
+      <p class="fala" id="fala"></p>
+      <div class="ver"><b>O que deve aparecer na tela</b><span id="ver"></span></div>
+      <div class="trv" id="trv"><b>Se travou</b><span id="trvt"></span></div>
+      <div class="row">
+        <button class="btn sec" id="back">Voltar</button>
+        <button class="btn warn" id="stuck">Travei</button>
+        <button class="btn" id="next">Fiz, próximo</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="end" id="end">
+    <div class="card ok">
+      <span class="tag">Etapa concluída</span>
+      <h2 id="endt"></h2>
+      <p class="fala" id="endp"></p>
+      <div class="row"><button class="btn" id="endnext"></button><button class="btn sec" id="endmenu">Voltar ao menu</button></div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+var BL=[
+ {n:'Instalar a extensão',s:'Cerca de 5 minutos',fim:'A extensão está instalada.',steps:[
+  ['Antes de começar','Vamos instalar a extensão. Você precisa estar no <b>computador</b>, usando o <b>Google Chrome</b>. No celular não funciona. Tenha em mãos o arquivo <code>.zip</code> que veio junto com o convite.','Você já está com o Chrome aberto no computador e sabe onde está o arquivo .zip.','Se não achou o arquivo, procure na pasta Downloads ou no e-mail do convite. Se não tem o arquivo, peça de novo a quem te convidou.'],
+  ['Salve o arquivo .zip','Coloque o arquivo numa pasta fácil de achar, como a <b>Área de trabalho</b>.','O arquivo .zip aparece na sua Área de trabalho.','Se o arquivo abriu sozinho ou sumiu, procure por ele na pasta Downloads e arraste para a Área de trabalho.'],
+  ['Extraia o arquivo','Clique com o <b>botão direito</b> no .zip e escolha <b>Extrair tudo</b>. Depois clique em <b>Extrair</b>.','Aparece uma pasta nova, com o mesmo nome do arquivo, ao lado do .zip.','Se não aparece “Extrair tudo”, você pode estar no celular ou o arquivo não é um .zip. Confira a terminação do nome do arquivo.'],
+  ['Abra a página de extensões do Chrome','Copie o endereço <code>chrome://extensions</code>, cole na barra de endereço do Chrome e aperte Enter. O Chrome não deixa abrir esse endereço clicando, por isso é preciso copiar e colar.','Abre uma página chamada “Extensões”, com uma lista (que pode estar vazia).','Se não abrir, confira se você colou na barra de cima (a que fica no topo do Chrome) e não na busca do Google.'],
+  ['Ligue o Modo do desenvolvedor','No canto de cima, à direita, tem um botão escrito <b>Modo do desenvolvedor</b>. Clique para ligar.','O botão fica azul (ligado) e aparecem novos botões no canto de cima, à esquerda.','Se não achou, olhe no canto superior direito da página de extensões. Se o botão já estava azul, está tudo certo.'],
+  ['Clique em “Carregar sem compactação”','Clique no botão <b>Carregar sem compactação</b>, no canto de cima, à esquerda.','Abre uma janela para você escolher uma pasta.','Se o botão não existe, volte um passo: o Modo do desenvolvedor precisa estar ligado.'],
+  ['Escolha a pasta certa','Entre nas pastas extraídas até achar a pasta chamada <b>extensao</b>. Dentro dela deve existir um arquivo chamado <code>manifest.json</code>. Selecione essa pasta e confirme.','A extensão aparece na lista, com o nome Mi Zap, ligada.','Se der erro de “manifesto”, você escolheu a pasta de fora. Entre mais uma pasta até ver o manifest.json dentro dela e escolha essa.'],
+  ['Abra o WhatsApp Web','Abra <code>web.whatsapp.com</code>. Se já estava aberto, aperte F5 para atualizar a página.','A barra da extensão aparece ao lado da conversa.','Se a barra não aparece, atualize a página com F5. Se continuar, confira em chrome://extensions se a extensão está ligada.'],
+  ['Não apague a pasta','Importante: o Chrome usa essa pasta para rodar a extensão. <b>Não apague nem mova</b> a pasta depois de instalar.','Nada para fazer aqui, só guardar a informação.','Se você apagou a pasta sem querer, repita este bloco: extraia o .zip de novo e carregue a pasta.']
+ ]},
+ {n:'Criar a conta e conectar o WhatsApp',s:'Cerca de 5 minutos',fim:'Sua conta está criada e o WhatsApp conectado.',steps:[
+  ['Abra a extensão','Clique no ícone da extensão, no canto de cima do Chrome. Se não aparecer, clique no desenho de peça de quebra-cabeça e <b>fixe</b> a extensão.','Abre a tela de entrada da extensão, com o botão Entrar.','Se o ícone não aparece, clique na peça de quebra-cabeça e depois no alfinete ao lado da extensão.'],
+  ['Escolha “criar conta com convite”','É o link que fica embaixo do botão Entrar.','Aparecem os campos para criar a conta.','Se você já criou a conta antes, pule para o passo de entrar.'],
+  ['Preencha os dados','Escreva o <b>código do convite</b> (8 letras e números), seu nome, seu e-mail e uma senha. Clique em <b>Criar conta</b> uma vez só.','A tela avisa que a conta foi criada e que falta confirmar o e-mail.','Se disser que o código é inválido, confira letras e números e se ele já foi usado: cada código vale para uma pessoa só. Peça um novo ao responsável.'],
+  ['Confirme o e-mail','Abra o seu e-mail, ache a mensagem e clique no link de confirmação. Olhe também a caixa de spam.','O link abre uma página dizendo que o e-mail foi confirmado.','Se não chegou, espere 2 minutos e olhe o spam. Se continuar sem chegar, fale com o suporte.'],
+  ['Entre na extensão','Volte à extensão e entre com o e-mail e a senha que você criou.','A extensão mostra suas telas, com o aviso dos 7 dias grátis.','Se disser senha incorreta, digite com calma e confira se o Caps Lock está desligado.'],
+  ['Abra a aba WhatsApp','Na extensão, abra a aba <b>WhatsApp</b>.','Aparece um QR code.','Se o QR não aparece, atualize o WhatsApp Web com F5 e tente de novo.'],
+  ['Leia o QR code com o celular','No celular, abra o WhatsApp, vá em <b>Aparelhos conectados</b>, toque em <b>Conectar um aparelho</b> e aponte a câmera para o QR code da tela. Prefira o número de trabalho: é ele que vai ficar ligado à Mi.IA.','A extensão avisa que o WhatsApp conectou.','Se não conectar, o QR pode ter expirado. Atualize a página, gere um QR novo e leia de novo.']
+ ]},
+ {n:'Ensinar a Mi.IA a falar do seu jeito',s:'Cerca de 10 minutos',fim:'A Mi.IA já sabe como falar com os seus clientes.',steps:[
+  ['Abra a tela “Minha Mi.IA”','Na extensão, abra <b>Minha Mi.IA</b>. Lá você responde 8 perguntas, e com elas ela aprende quem você é e o que vende.','Aparece a lista de perguntas.','Se não achar a tela, confira se está logado e se o teste ou o plano com a Mi.IA está ativo.'],
+  ['Responda as perguntas de 1 a 4','1) Como ela deve se apresentar. 2) Região onde você atua. 3) Tipo de imóvel. 4) Empreendimentos, com o que ela pode ou não informar. Exemplo: “Sou a Mi.IA, assistente do corretor João, da Imobiliária Horizonte.” Escreva <b>só o que é verdade</b>: ela repete o que você escreve.','As quatro primeiras respostas estão preenchidas.','Se não sabe o que escrever, copie o exemplo e troque pelos seus dados.'],
+  ['Responda as perguntas de 5 a 8','5) Tom (ex.: “simpática e direta, frases curtas”). 6) O que perguntar ao cliente (renda, FGTS, entrada, região). 7) Quando passar para você (visita, valores, pedir para falar com você). 8) <b>Limites</b>: o que ela nunca pode prometer, como aprovação de financiamento, desconto ou prazo de entrega.','As 8 respostas estão preenchidas e salvas.','Seja específico: “simpática e curta” funciona melhor do que “profissional”. Nos limites, escreva tudo que ela não pode prometer.'],
+  ['Teste mandando uma mensagem','Peça para outra pessoa mandar uma mensagem para o seu número, ou mande de outro número, e veja como a Mi.IA responde. Se alguma resposta não ficou boa, volte em Minha Mi.IA e ajuste a pergunta que causou isso.','A Mi.IA responde com o jeito que você escreveu.','Se ela não respondeu, confira se o WhatsApp está conectado e se a conversa não está pausada com “Eu assumo”.']
+ ]},
+ {n:'Sua primeira campanha',s:'Cerca de 15 minutos',fim:'Sua primeira campanha está no ar.',steps:[
+  ['Leia antes de começar','Campanha é uma mensagem enviada para vários contatos. Disparo em massa pode bloquear o seu número, então a extensão envia <b>devagar</b> (1 por minuto), de segunda a sábado, das 9h às 19h. Só envie para quem tem relação com você ou pediu informação. Quem pedir SAIR não recebe mais.','Nada para fazer aqui, só ler.','Comece sempre pequeno: 1 ou 2 contatos na primeira vez.'],
+  ['Importe uma planilha pequena','Prepare uma planilha com três colunas: <code>nome</code>, <code>telefone</code> (com DDD) e <code>empreendimento</code>. Salve como <b>CSV</b>. Na aba <b>Planilha</b>, clique em <b>Importar planilha</b> e escolha o arquivo. Para o primeiro teste, use só 1 ou 2 contatos, de preferência o seu próprio número.','A tela mostra o resumo: quantos contatos novos, quantos já existiam e quantos inválidos.','Se vierem inválidos, corrija o telefone na planilha (sem DDD ou com letras) e importe de novo.'],
+  ['Crie o anúncio','Abra a aba <b>Anúncios</b>. Escolha o empreendimento (a opção <b>Geral</b> vale para todos os contatos sem anúncio próprio, confira antes de salvar).','A tela do anúncio abre, com os campos de mensagem.','Se o empreendimento não aparece, confira se ele foi importado na planilha.'],
+  ['Escreva a Mensagem 1','Curta e simpática. Exemplo: “Oi {nome}, tudo bem? Aqui é a Mi.IA, da Imobiliária Horizonte. Você pediu informações sobre o {empreendimento}. Ainda tem interesse?” A extensão troca {nome} e {empreendimento} pelos dados de cada contato.','A mensagem está escrita no campo.','Escreva as chaves exatamente assim: {nome} e {empreendimento}.'],
+  ['Escreva a Mensagem 2 e salve','A segunda é enviada em seguida, com uma pergunta fácil de responder. Exemplo: “Posso te passar valores e condições?” Depois clique em <b>Salvar anúncio</b>.','O empreendimento passa a aparecer com um ✓.','Se não apareceu o ✓, clique em Salvar anúncio de novo e confira se as duas mensagens estão preenchidas.'],
+  ['Escolha quem recebe','Abra a <b>Planilha</b>. Todos os contatos vêm marcados. Clique em <b>Limpar seleção</b> e marque só quem deve receber.','Só os contatos que você marcou ficam selecionados.','Se marcou errado, clique em Limpar seleção e marque de novo.'],
+  ['Abra o Disparo e confira','Abra o <b>Disparo</b>. Confira os grupos: quem está “sem anúncio” não recebe nada. A quantidade por dia começa em <b>20</b>: comece pequeno.','Os grupos aparecem com o anúncio de cada empreendimento.','Se um grupo está “sem anúncio”, volte e crie o anúncio daquele empreendimento.'],
+  ['Crie as campanhas (rascunho)','Clique em <b>Criar campanhas</b>. Isso cria só <b>rascunhos</b>: nada é enviado ainda.','As campanhas aparecem como rascunho.','Se nada apareceu, confira se existem contatos selecionados e anúncios salvos.'],
+  ['Ative a campanha','Quando estiver tudo conferido, clique em <b>Ativar</b>. Os envios começam respeitando o horário e o ritmo de 1 por minuto.','A campanha aparece como ativa e as mensagens começam a sair no horário permitido.','Se for fora do horário (domingo ou depois das 19h), ela espera e começa no próximo horário permitido.']
+ ]}
+];
+var KEY='guiado_mia_pos', DONE='guiado_mia_ok';
+function rd(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function wr(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var pos=rd(KEY,null), done=rd(DONE,{});
+var b=0,s=0;
+var $=function(i){return document.getElementById(i)};
+function home(){ $('home').style.display='block'; $('stepper').classList.remove('on'); $('end').classList.remove('on');
+  var h=''; BL.forEach(function(x,i){ h+='<button class="blk'+(done[i]?' done':'')+'" data-b="'+i+'"><span class="n">'+(done[i]?'✓':(i+1))+'</span><span><b>'+x.n+'</b><small>'+x.s+' · '+x.steps.length+' etapas</small></span></button>'; });
+  $('blocks').innerHTML=h;
+  Array.prototype.forEach.call(document.querySelectorAll('.blk'),function(el){ el.onclick=function(){ b=+el.getAttribute('data-b'); s=0; show(); }; });
+  $('resume').style.display=pos?'inline-flex':'none'; window.scrollTo(0,0); }
+function show(){ var B=BL[b], st=B.steps[s]; $('home').style.display='none'; $('end').classList.remove('on'); $('stepper').classList.add('on');
+  $('where').textContent='Bloco '+(b+1)+' de '+BL.length+' · Etapa '+(s+1)+' de '+B.steps.length;
+  $('pb').style.width=((s)/B.steps.length*100)+'%';
+  $('tag').textContent=B.n; $('ttl').textContent=st[0]; $('fala').innerHTML=st[1]; $('ver').innerHTML=st[2]; $('trvt').innerHTML=st[3]; $('trv').classList.remove('on');
+  $('back').disabled=(s===0); $('next').textContent=(s===B.steps.length-1)?'Fiz, concluir':'Fiz, próximo';
+  pos={b:b,s:s}; wr(KEY,pos); window.scrollTo(0,0); $('ttl').focus&&0; }
+function fim(){ var B=BL[b]; done[b]=1; wr(DONE,done); pos=null; try{localStorage.removeItem(KEY)}catch(e){}
+  $('stepper').classList.remove('on'); $('end').classList.add('on'); $('endt').textContent=B.fim;
+  var last=(b===BL.length-1); $('endp').textContent=last?'Você fez tudo: instalou, conectou, ensinou a Mi.IA e criou sua primeira campanha. Se surgir qualquer dúvida, pergunte para a Mi.IA no chat do site ou pelo WhatsApp.':'Muito bem! Quando quiser, vamos para o próximo bloco.';
+  $('endnext').textContent=last?'Ver o curso completo':'Próximo bloco'; $('endnext').onclick=function(){ if(last){ location.href='/curso'; } else { b++; s=0; show(); } }; window.scrollTo(0,0); }
+$('next').onclick=function(){ if(s<BL[b].steps.length-1){ s++; show(); } else fim(); };
+$('back').onclick=function(){ if(s>0){ s--; show(); } };
+$('stuck').onclick=function(){ $('trv').classList.toggle('on'); };
+$('home2').onclick=home; $('endmenu').onclick=home;
+$('go').onclick=function(){ b=0; s=0; show(); };
+$('resume').onclick=function(){ if(pos){ b=pos.b; s=pos.s; show(); } };
+home();
+})();
+</script>
+</body>
+</html>
