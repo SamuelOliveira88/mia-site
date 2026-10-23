@@ -656,7 +656,7 @@ footer p{max-width:60ch}
   var started=false, busy=false;
   function linkify(el,t){ var re=/(https?:\/\/[^\s]+[^\s.,;:!?)])/g, last=0, m; t=String(t);
     while((m=re.exec(t))){ if(m.index>last) el.appendChild(document.createTextNode(t.slice(last,m.index)));
-      var a=document.createElement('a'); a.href=m[1]; a.target='_blank'; a.rel='noopener'; a.textContent=m[1].indexOf('.pdf')>0?'Baixar o curso (PDF)':(m[1].indexOf('/curso')>0?'Abrir o curso':m[1]); a.style.cssText='color:inherit;font-weight:700;text-decoration:underline'; el.appendChild(a); last=re.lastIndex; }
+      var a=document.createElement('a'); a.href=m[1]; a.target='_blank'; a.rel='noopener'; a.textContent=m[1].indexOf('.pdf')>0?'Baixar o curso (PDF)':(m[1].indexOf('/guiado')>0?'Abrir o passo a passo guiado':(m[1].indexOf('/curso')>0?'Abrir o curso':m[1])); a.style.cssText='color:inherit;font-weight:700;text-decoration:underline'; el.appendChild(a); last=re.lastIndex; }
     if(last<t.length) el.appendChild(document.createTextNode(t.slice(last))); }
   function add(t,who){ var d=document.createElement('div'); d.className='mc-m '+who; if(who==='bot'){ linkify(d,t); } else { d.textContent=t; } box.insertBefore(d,dots); box.scrollTop=box.scrollHeight; }
   function open(){ panel.classList.add('open'); btn.style.display='none'; btn.setAttribute('aria-expanded','true');
