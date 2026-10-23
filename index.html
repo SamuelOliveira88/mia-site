@@ -654,7 +654,11 @@ footer p{max-width:60ch}
       send=document.getElementById('mcSend'), chips=document.getElementById('mcChips');
   var sess; try{ sess=localStorage.getItem('mc_s'); if(!sess){ sess='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8); localStorage.setItem('mc_s',sess);} }catch(e){ sess='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8); }
   var started=false, busy=false;
-  function add(t,who){ var d=document.createElement('div'); d.className='mc-m '+who; d.textContent=t; box.insertBefore(d,dots); box.scrollTop=box.scrollHeight; }
+  function linkify(el,t){ var re=/(https?:\/\/[^\s]+[^\s.,;:!?)])/g, last=0, m; t=String(t);
+    while((m=re.exec(t))){ if(m.index>last) el.appendChild(document.createTextNode(t.slice(last,m.index)));
+      var a=document.createElement('a'); a.href=m[1]; a.target='_blank'; a.rel='noopener'; a.textContent=m[1].indexOf('.pdf')>0?'Baixar o curso (PDF)':(m[1].indexOf('/curso')>0?'Abrir o curso':m[1]); a.style.cssText='color:inherit;font-weight:700;text-decoration:underline'; el.appendChild(a); last=re.lastIndex; }
+    if(last<t.length) el.appendChild(document.createTextNode(t.slice(last))); }
+  function add(t,who){ var d=document.createElement('div'); d.className='mc-m '+who; if(who==='bot'){ linkify(d,t); } else { d.textContent=t; } box.insertBefore(d,dots); box.scrollTop=box.scrollHeight; }
   function open(){ panel.classList.add('open'); btn.style.display='none'; btn.setAttribute('aria-expanded','true');
     if(!started){ started=true; add('Oi! Eu sou a Mi.IA. Pode me perguntar o que quiser sobre como eu atendo seus clientes no WhatsApp.','bot'); }
     setTimeout(function(){ inp.focus(); },50); }
