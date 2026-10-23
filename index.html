@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mi.IA – extensão do Chrome que atende seus clientes no WhatsApp Web</title>
+<meta name="description" content="Extensão para o WhatsApp Web com a Mi.IA, vendedora com IA: responde na hora, entende áudio, explica financiamento, retoma quem sumiu e avisa quando o cliente quer visitar. 7 dias grátis.">
+<meta property="og:title" content="Mi.IA – atendimento imobiliário com IA no WhatsApp">
+<meta property="og:description" content="Ela atende, qualifica e retoma seus leads. Você entra quando o cliente está pronto. Teste 7 dias grátis.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1A1038">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235B3DF5'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EMi%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F2FB;
+  --paper-2:#EBE6F7;
+  --ink:#1A1038;
+  --ink-soft:#4A4266;
+  --violet:#5B3DF5;
+  --violet-deep:#3F27C4;
+  --violet-soft:#E2DBFF;
+  --mint:#D3F5E4;
+  --mint-ink:#0E5C3E;
+  --coral:#FF6B57;
+  --white:#fff;
+  --radius:22px;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Figtree',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-0.02em}
+h1{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:800}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:800}
+h3{font-size:1.25rem;font-weight:700;letter-spacing:-0.01em}
+p{max-width:62ch}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 1.02rem var(--body);padding:15px 26px;border-radius:999px;border:2px solid transparent;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--violet);color:#fff}
+.btn-primary:hover{background:var(--violet-deep)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-light{background:#fff;color:var(--ink)}
+
+/* topo */
+header{padding:20px 0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font:800 1.7rem var(--display);letter-spacing:-0.03em;text-decoration:none;display:flex;align-items:baseline}
+.logo i{width:.42em;height:.42em;border-radius:50%;background:var(--violet);display:inline-block;margin:0 .04em;transform:translateY(-.02em)}
+nav{display:flex;gap:26px;align-items:center}
+nav a{text-decoration:none;font-weight:500;color:var(--ink-soft)}
+nav a:hover{color:var(--ink)}
+@media(max-width:760px){nav .hide-s{display:none}}
+
+/* hero */
+.hero{padding:36px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero p.lead{font-size:1.25rem;color:var(--ink-soft);margin:26px 0 34px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero small{display:block;margin-top:18px;color:var(--ink-soft);font-size:.95rem}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+
+/* telefone */
+.stage{position:relative;display:flex;justify-content:center}
+.phone{width:min(340px,100%);background:var(--ink);border-radius:42px;padding:12px;box-shadow:0 40px 80px -30px rgba(26,16,56,.55)}
+.screen{background:#ECE5DD;border-radius:32px;overflow:hidden;display:flex;flex-direction:column;height:520px}
+.chat-head{background:var(--violet);color:#fff;padding:14px 16px;display:flex;gap:12px;align-items:center}
+.avatar{width:38px;height:38px;border-radius:50%;background:#fff;color:var(--violet);display:grid;place-items:center;font:800 .95rem var(--display)}
+.chat-head b{display:block;font-size:1rem;line-height:1.2}
+.chat-head span{font-size:.8rem;opacity:.85}
+.chat{flex:1;padding:14px 12px;display:flex;flex-direction:column;gap:8px;overflow:hidden;justify-content:flex-end}
+.msg{max-width:84%;padding:9px 12px;border-radius:14px;font-size:.93rem;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.msg.in{background:#fff;align-self:flex-start;border-top-left-radius:4px}
+.msg.out{background:var(--mint);align-self:flex-end;border-top-right-radius:4px;color:#10241b}
+.msg small{display:block;text-align:right;font-size:.68rem;opacity:.55;margin-top:2px}
+html.js .msg{display:none}
+html.js .msg.show{display:block;animation:pop .28s ease-out}
+.typing{align-self:flex-end;background:var(--mint);padding:10px 14px;border-radius:14px;border-top-right-radius:4px;display:none;gap:4px}
+.typing.on{display:flex}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--mint-ink);opacity:.4;animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{50%{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.alert{position:absolute;left:-6px;bottom:36px;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 20px 40px -16px rgba(26,16,56,.5);max-width:250px;border-left:6px solid var(--coral)}
+.alert b{display:block;font-family:var(--display);font-size:1rem}
+.alert span{font-size:.88rem;color:var(--ink-soft);line-height:1.35;display:block}
+html.js .alert{opacity:0;transform:translateY(14px) scale(.96);transition:opacity .4s,transform .4s}
+html.js .alert.show{opacity:1;transform:none}
+@media(max-width:520px){.alert{left:0;right:0;margin:auto;bottom:-24px}}
+
+/* seções */
+section{padding:92px 0}
+.sec-head{max-width:700px;margin-bottom:48px}
+.sec-head p{margin-top:16px;color:var(--ink-soft);font-size:1.12rem}
+.band{background:var(--ink);color:#fff}
+.band .sec-head p{color:#CFC8EA}
+
+/* problema */
+.problem{padding:70px 0;background:var(--paper-2)}
+.problem .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.problem p{font-size:1.15rem;color:var(--ink-soft)}
+.problem p+p{margin-top:14px}
+@media(max-width:800px){.problem .wrap{grid-template-columns:1fr;gap:20px}}
+
+/* instalar */
+.install{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;list-style:none;counter-reset:s}
+.install li{counter-increment:s;background:#fff;border-radius:var(--radius);padding:26px 22px}
+.install li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--violet);color:#fff;font:800 1.1rem var(--display);margin-bottom:16px}
+.install h3{margin-bottom:6px}
+.install p{color:var(--ink-soft);font-size:.97rem}
+@media(max-width:900px){.install{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.install{grid-template-columns:1fr}}
+
+/* como funciona */
+.how{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.how-card{border-radius:var(--radius);padding:30px 28px}
+.how-card.screen-side{background:var(--violet);color:#fff}
+.how-card.back-side{background:#fff}
+.how-card h3{margin-bottom:6px;font-size:1.4rem}
+.how-card .sub{opacity:.85;margin-bottom:18px;font-size:.98rem}
+.back-side .sub{color:var(--ink-soft);opacity:1}
+.how-card ul{list-style:none;display:grid;gap:12px}
+.how-card li{padding-left:22px;position:relative;font-size:.99rem}
+.how-card li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:3px;border-radius:2px;background:currentColor;opacity:.7}
+.flow{list-style:none;counter-reset:f;display:grid;gap:0;margin-top:34px;max-width:760px}
+.flow li{counter-increment:f;display:grid;grid-template-columns:48px 1fr;gap:18px;padding:0 0 26px;position:relative}
+.flow li::before{content:counter(f);width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font:800 1.05rem var(--display);position:relative;z-index:1}
+.flow li::after{content:"";position:absolute;left:18px;top:38px;bottom:0;width:2px;background:var(--violet-soft)}
+.flow li:last-child::after{display:none}
+.flow b{display:block;font:700 1.15rem var(--display);margin-bottom:2px}
+.flow span{color:var(--ink-soft)}
+@media(max-width:800px){.how{grid-template-columns:1fr}}
+
+/* lista de funções */
+.feat{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+.feat-aside{position:sticky;top:24px;align-self:start}
+.feat-list{list-style:none}
+.feat-list li{padding:26px 0;border-top:2px solid var(--ink)}
+.feat-list li:last-child{border-bottom:2px solid var(--ink)}
+.feat-list h3{margin-bottom:6px}
+.feat-list p{color:var(--ink-soft)}
+@media(max-width:860px){.feat{grid-template-columns:1fr;gap:28px}.feat-aside{position:static}}
+
+/* retomada */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:10px;position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:19px;height:3px;background:#5a4a96}
+.tl{position:relative;padding:50px 18px 0 0}
+.tl::before{content:"";position:absolute;left:0;top:8px;width:26px;height:26px;border-radius:50%;background:var(--paper);border:6px solid var(--violet)}
+.tl.hot::before{background:var(--coral);border-color:var(--coral)}
+.tl b{font:800 1.5rem var(--display);display:block;margin-bottom:6px}
+.tl span{color:#CFC8EA;font-size:.98rem;display:block;line-height:1.45}
+.fine{margin-top:34px;color:#CFC8EA;font-size:.98rem}
+@media(max-width:760px){
+  .timeline{grid-template-columns:1fr;gap:6px}
+  .timeline::before{left:12px;right:auto;top:0;bottom:0;width:3px;height:auto}
+  .tl{padding:6px 0 22px 50px}
+  .tl::before{left:0;top:6px}
+}
+
+/* confiança */
+.trust{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.trust ul{list-style:none;margin-top:26px;display:grid;gap:14px}
+.trust li{padding-left:34px;position:relative;color:var(--ink-soft)}
+.trust li::before{content:"";position:absolute;left:0;top:.35em;width:20px;height:20px;border-radius:50%;background:var(--violet) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3.2L15 7' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.trust li b{color:var(--ink)}
+.quote{background:var(--violet);color:#fff;border-radius:var(--radius);padding:38px 34px}
+.quote p{font:700 1.55rem/1.25 var(--display);letter-spacing:-0.01em}
+.quote span{display:block;margin-top:16px;font-size:.98rem;opacity:.85}
+@media(max-width:860px){.trust{grid-template-columns:1fr;gap:36px}}
+
+/* mi zap */
+.zap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.zap-box{background:#fff;border-radius:var(--radius);padding:26px;box-shadow:0 30px 60px -34px rgba(26,16,56,.4)}
+.side-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.side-title b{font-family:var(--display);font-size:1.1rem}
+.pill{font-size:.8rem;font-weight:600;padding:4px 12px;border-radius:999px;background:var(--mint);color:var(--mint-ink)}
+.pill.warm{background:#FFE1DC;color:#9C2A1A}
+.row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--paper-2);font-size:.97rem}
+.row span:first-child{color:var(--ink-soft)}
+.row span:last-child{font-weight:600;text-align:right}
+.steps{display:flex;gap:6px;margin-top:16px;flex-wrap:wrap}
+.steps em{font-style:normal;font-size:.82rem;padding:6px 12px;border-radius:999px;background:var(--paper-2);color:var(--ink-soft)}
+.steps em.on{background:var(--violet);color:#fff}
+.zap ul{margin-top:22px;list-style:none;display:grid;gap:12px;color:var(--ink-soft)}
+.zap li{padding-left:22px;position:relative}
+.zap li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:3px;background:var(--violet);border-radius:2px}
+@media(max-width:860px){.zap{grid-template-columns:1fr;gap:36px}}
+
+/* planos */
+.plans{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:20px;align-items:stretch}
+.plan{background:#fff;border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column}
+.plan h3{margin-bottom:4px}
+.plan .desc{color:var(--ink-soft);font-size:.97rem;min-height:3em}
+.price{font:800 2.7rem var(--display);letter-spacing:-0.03em;margin:20px 0 4px}
+.price small{font:500 1rem var(--body);color:var(--ink-soft);letter-spacing:0}
+.plan ul{list-style:none;margin:20px 0 28px;display:grid;gap:10px;font-size:.98rem;flex:1}
+.plan li{padding-left:24px;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:7px;border-left:3px solid var(--violet);border-bottom:3px solid var(--violet);transform:rotate(-45deg)}
+.plan.featured{background:var(--ink);color:#fff;padding:40px 32px;box-shadow:0 40px 70px -30px rgba(26,16,56,.7)}
+.plan.featured .desc,.plan.featured .price small{color:#CFC8EA}
+.plan.featured li::before{border-color:var(--mint)}
+.tag{align-self:flex-start;font-size:.8rem;font-weight:600;background:var(--coral);color:#fff;padding:4px 12px;border-radius:999px;margin-bottom:14px}
+.plan .btn{width:100%}
+.plans-note{margin-top:30px;color:var(--ink-soft);font-size:.98rem;text-align:center;max-width:none}
+@media(max-width:900px){.plans{grid-template-columns:1fr}.plan.featured{order:-1}}
+
+/* faq */
+.faq{max-width:780px}
+details{border-top:2px solid var(--ink);padding:20px 0}
+details:last-of-type{border-bottom:2px solid var(--ink)}
+summary{font:700 1.2rem var(--display);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;letter-spacing:-0.01em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.7rem;line-height:1;color:var(--violet);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--ink-soft)}
+
+/* final */
+.final{background:var(--violet);color:#fff;text-align:center;padding:100px 0}
+.final h2{max-width:16ch;margin:0 auto}
+.final p{margin:20px auto 34px;color:#E6E0FF;font-size:1.15rem}
+footer{padding:44px 0;background:var(--ink);color:#B8B0D6;font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+footer .logo{color:#fff;font-size:1.4rem}
+footer p{max-width:60ch}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  html.js .msg,html.js .alert{display:block;opacity:1;transform:none}
+}
+/* chat da Mi.IA */
+.mc-btn{position:fixed;right:20px;bottom:20px;z-index:50;display:flex;align-items:center;gap:10px;background:var(--violet);color:#fff;border:0;border-radius:999px;padding:8px 20px 8px 8px;font:600 1rem var(--body);cursor:pointer;box-shadow:0 18px 36px -12px rgba(63,39,196,.7);transition:transform .15s}
+.mc-btn:hover{transform:translateY(-2px)}
+.mc-btn .avatar{width:42px;height:42px;background:#fff;color:var(--violet)}
+.mc-panel{position:fixed;right:20px;bottom:20px;z-index:60;width:min(380px,calc(100vw - 24px));height:min(560px,calc(100vh - 40px));background:var(--paper);border-radius:24px;box-shadow:0 30px 70px -20px rgba(26,16,56,.6);display:none;flex-direction:column;overflow:hidden}
+.mc-panel.open{display:flex;animation:pop .25s ease-out}
+.mc-head{background:var(--ink);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.mc-head .avatar{background:var(--violet);color:#fff}
+.mc-head b{display:block;line-height:1.2}
+.mc-head span{font-size:.8rem;opacity:.8}
+.mc-x{margin-left:auto;background:none;border:0;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
+.mc-msgs{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:10px}
+.mc-m{max-width:86%;padding:10px 14px;border-radius:16px;font-size:.96rem;line-height:1.45;white-space:pre-wrap;word-wrap:break-word}
+.mc-m.bot{background:#fff;align-self:flex-start;border-top-left-radius:4px}
+.mc-m.me{background:var(--violet);color:#fff;align-self:flex-end;border-top-right-radius:4px}
+.mc-dots{align-self:flex-start;background:#fff;border-radius:16px;border-top-left-radius:4px;padding:12px 16px;display:none;gap:4px}
+.mc-dots.on{display:flex}
+.mc-dots i{width:7px;height:7px;border-radius:50%;background:var(--violet);opacity:.4;animation:blink 1s infinite}
+.mc-dots i:nth-child(2){animation-delay:.15s}.mc-dots i:nth-child(3){animation-delay:.3s}
+.mc-chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 14px 10px}
+.mc-chips button{font:500 .88rem var(--body);background:var(--violet-soft);color:var(--violet-deep);border:0;border-radius:999px;padding:8px 14px;cursor:pointer}
+.mc-form{display:flex;gap:8px;padding:12px;background:#fff;border-top:1px solid var(--paper-2)}
+.mc-form input{flex:1;font:1rem var(--body);border:2px solid var(--paper-2);border-radius:999px;padding:11px 16px;background:var(--paper);color:var(--ink);min-width:0}
+.mc-form input:focus{outline:none;border-color:var(--violet)}
+.mc-form button{background:var(--violet);color:#fff;border:0;border-radius:999px;padding:0 20px;font:600 1rem var(--body);cursor:pointer}
+.mc-form button:disabled{opacity:.5;cursor:default}
+@media(max-width:520px){.mc-panel{right:12px;bottom:12px}.mc-btn span.t{display:none}.mc-btn{padding:8px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#topo" aria-label="Mi.IA">Mi<i></i>IA</a>
+    <nav aria-label="Principal">
+      <a class="hide-s" href="#instalar">Como instalar</a>
+      <a class="hide-s" href="#como-funciona">Como funciona</a>
+      <a class="hide-s" href="#funcoes">O que ela faz</a>
+      <a class="hide-s" href="#planos">Planos</a>
+      <a class="hide-s" href="#duvidas">Dúvidas</a>
+      <a class="btn btn-primary" style="padding:10px 20px" href="https://wa.me/5511920036576?text=Oi!%20Quero%20testar%20a%20Mi.IA%207%20dias%20gr%C3%A1tis%20(MIA-SITE)" target="_blank" rel="noopener">Testar grátis</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>A Mi.IA mora dentro do seu WhatsApp Web.</h1>
+      <p class="lead">Instale a extensão no Chrome, conecte seu WhatsApp e pronto: ela atende seus clientes na hora, explica o financiamento sem enrolar e avisa você quando alguém quer visitar o imóvel.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://wa.me/5511920036576?text=Oi!%20Quero%20testar%20a%20Mi.IA%207%20dias%20gr%C3%A1tis%20(MIA-SITE)" target="_blank" rel="noopener">Testar 7 dias grátis</a>
+        <a class="btn btn-ghost" href="#funcoes">Ver o que ela faz</a>
+      </div>
+      <small>Extensão para Google Chrome, no seu próprio número. Feita por corretor, para corretores e imobiliárias.</small>
+    </div>
+
+    <div class="stage" aria-label="Exemplo de conversa da Mi.IA com um cliente">
+      <div class="phone">
+        <div class="screen">
+          <div class="chat-head">
+            <div class="avatar">Mi</div>
+            <div><b>Mi.IA</b><span>atendendo agora</span></div>
+          </div>
+          <div class="chat" id="chat">
+            <div class="msg in">Oi! Vi o anúncio do apartamento. Ainda tem?<small>23:12</small></div>
+            <div class="msg out">Oi! Tem sim 😊 Antes de te mostrar, me conta: é pra morar ou investir?<small>23:12</small></div>
+            <div class="msg in">Morar. Eu e minha esposa<small>23:13</small></div>
+            <div class="msg out">Que legal! Pra eu te orientar certinho: vocês dois trabalham de carteira assinada? E mais ou menos quanto a renda da família soma?<small>23:13</small></div>
+            <div class="msg in">Os dois. Uns 4 mil juntos<small>23:14</small></div>
+            <div class="msg out">Perfeito, com essa renda vale simular o financiamento. Te explico como funciona e já separo as fotos e a planta. Quer que o corretor te ligue amanhã pra marcar a visita?<small>23:14</small></div>
+            <div class="msg in">Quero sim!<small>23:15</small></div>
+            <div class="typing" id="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="alert" id="alert" role="status">
+        <b>Aviso para você</b>
+        <span>Cliente pediu visita. Resumo da conversa pronto.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problem">
+  <div class="wrap">
+    <h2>Lead que espera, esfria.</h2>
+    <div>
+      <p>Você está numa visita, dormindo ou respondendo outro cliente. Enquanto isso, quem chamou no WhatsApp fica sem resposta e procura outro corretor.</p>
+      <p>A Mi.IA responde na hora, conduz a conversa e entrega o cliente pronto pra você fechar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALAR -->
+<section id="instalar">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Uma extensão do Chrome. Quatro passos e ela está atendendo.</h2>
+      <p>Nada de programa pesado nem troca de número. A Mi.IA aparece numa barra ao lado do seu WhatsApp Web.</p>
+    </div>
+    <ol class="install">
+      <li><h3>Receba seu convite</h3><p>Peça o acesso pelo WhatsApp e crie sua conta. Os 7 dias grátis começam aqui.</p></li>
+      <li><h3>Instale a extensão</h3><p>Adicione a Mi Zap ao seu Chrome. Ela abre uma barra lateral no WhatsApp Web.</p></li>
+      <li><h3>Conecte seu WhatsApp</h3><p>Leia um QR code com o celular, como você já faz no WhatsApp Web.</p></li>
+      <li><h3>Ajuste e ligue</h3><p>Escolha o tom da Mi.IA, cadastre seus empreendimentos e ative. Ela já começa a atender.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Como a extensão funciona, sem mistério</h2>
+      <p>São duas partes trabalhando juntas: a extensão na sua tela e a Mi.IA nos bastidores.</p>
+    </div>
+
+    <div class="how">
+      <div class="how-card screen-side">
+        <h3>Na sua tela: a extensão</h3>
+        <p class="sub">É o seu painel de controle, ao lado do WhatsApp Web.</p>
+        <ul>
+          <li>Mostra a ficha do cliente da conversa aberta: etapa do funil, notas e se a Mi.IA está ativa</li>
+          <li>Deixa você mudar a etapa do cliente e anotar o que combinou</li>
+          <li>Tem o botão de pausar e retomar a Mi.IA em cada conversa</li>
+          <li>Guarda suas respostas rápidas por empreendimento</li>
+          <li>Lê só o número do contato da conversa aberta, nunca o texto das mensagens</li>
+        </ul>
+      </div>
+      <div class="how-card back-side">
+        <h3>Nos bastidores: a Mi.IA</h3>
+        <p class="sub">Trabalha num servidor, por isso não depende da extensão para responder.</p>
+        <ul>
+          <li>Fica ligada ao seu WhatsApp pelo QR code que você leu</li>
+          <li>Recebe a mensagem do cliente, em texto ou em áudio, e entende o que ele quer</li>
+          <li>Consulta o material dos empreendimentos que você cadastrou</li>
+          <li>Responde, retoma quem sumiu e guarda a memória de cada conversa</li>
+          <li>Manda os avisos para você quando o cliente está pronto</li>
+        </ul>
+      </div>
+    </div>
+
+    <ol class="flow">
+      <li><div><b>O cliente manda mensagem</b><span>Pode ser texto ou áudio, a qualquer hora do dia ou da noite.</span></div></li>
+      <li><div><b>A Mi.IA entende e responde</b><span>Ela transcreve o áudio, olha o que já foi conversado, consulta o seu material e responde no seu WhatsApp.</span></div></li>
+      <li><div><b>A ficha se atualiza na sua barra lateral</b><span>Quando você abre a conversa, vê o perfil do cliente, a etapa do funil e o resumo do que foi dito.</span></div></li>
+      <li><div><b>Você é avisado na hora certa</b><span>Lead quente, pedido de visita ou cliente esperando. É o momento de você entrar.</span></div></li>
+      <li><div><b>Você assume e devolve quando quiser</b><span>Pause a Mi.IA naquela conversa, fale com o cliente e depois devolva pra ela continuar.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FUNÇÕES -->
+<section id="funcoes">
+  <div class="wrap feat">
+    <div class="feat-aside">
+      <h2>O que a Mi.IA faz por você</h2>
+      <p style="margin-top:16px;color:var(--ink-soft);font-size:1.1rem">Do primeiro “oi” até o aviso de que o cliente quer visitar.</p>
+    </div>
+    <ul class="feat-list">
+      <li>
+        <h3>Responde na hora, a qualquer hora</h3>
+        <p>Nenhum cliente fica esperando. Ela mostra “digitando…” e “gravando áudio”, como uma pessoa faria.</p>
+      </li>
+      <li>
+        <h3>Entende áudio e responde em áudio</h3>
+        <p>Cliente que prefere mandar áudio é atendido do mesmo jeito. Ela transcreve o que ele disse e pode responder falando.</p>
+      </li>
+      <li>
+        <h3>Descobre o que o cliente precisa</h3>
+        <p>Pergunta com naturalidade: se é pra morar ou investir, a renda da família, o que importa na escolha. Você recebe o perfil pronto.</p>
+      </li>
+      <li>
+        <h3>Explica financiamento em linguagem simples</h3>
+        <p>Entrada, parcelas, subsídio, Minha Casa Minha Vida. Ela ensina o passo a passo e responde as dúvidas e objeções mais comuns.</p>
+      </li>
+      <li>
+        <h3>Manda fotos e informações do empreendimento</h3>
+        <p>Texto, fotos e plantas saem do material oficial que você cadastrar. Os dados fixos ficam guardados, e o que muda (como obra e dados da Caixa) é consultado quando precisa.</p>
+      </li>
+      <li>
+        <h3>Lembra de cada cliente</h3>
+        <p>Cada conversa fica guardada. Se o cliente volta no dia seguinte, ela continua de onde parou.</p>
+      </li>
+      <li>
+        <h3>Avisa você na hora certa</h3>
+        <p>Lead quente, pedido de visita e cliente esperando resposta há 20 minutos viram aviso pra você. Você entra só quando importa.</p>
+      </li>
+      <li>
+        <h3>Fala do seu jeito</h3>
+        <p>Na tela “Minha Mi.IA” você ajusta o tom e o comportamento dela: mais formal, mais leve, mais direta.</p>
+      </li>
+      <li>
+        <h3>Relatório semanal</h3>
+        <p>Toda segunda você vê quantos leads ela atendeu, quantos estavam quentes e a porcentagem.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- RETOMADA -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Cliente sumiu? Ela volta atrás dele.</h2>
+      <p>Muita venda se perde porque ninguém retoma a conversa. A Mi.IA faz isso sozinha, sem encher o cliente.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl"><b>Cliente some</b><span>A conversa para no meio.</span></div>
+      <div class="tl"><b>Em 2 horas</b><span>Primeira mensagem de retomada, leve e sem pressão.</span></div>
+      <div class="tl"><b>Em 24 horas</b><span>Segunda tentativa, com um motivo novo pra continuar.</span></div>
+      <div class="tl hot"><b>Em 72 horas</b><span>Terceira e última tentativa. Depois disso ela para.</span></div>
+    </div>
+    <p class="fine">Até 3 mensagens por cliente, sempre entre 9h e 20h. Quem pede para sair não recebe mais nada.</p>
+  </div>
+</section>
+
+<!-- CONFIANÇA -->
+<section>
+  <div class="wrap trust">
+    <div>
+      <h2>Ela não inventa. Se não sabe, não chuta.</h2>
+      <ul>
+        <li><b>Só usa o seu material.</b> Endereço, cidade, características e condições vêm das fichas e tabelas oficiais que você cadastrou.</li>
+        <li><b>Conversa como gente.</b> Ela se adapta ao cliente e até a atendimentos automáticos, sem encerrar a conversa de forma robótica.</li>
+        <li><b>Você assume quando quiser.</b> Pause a Mi.IA numa conversa, fale com o cliente e depois devolva pra ela.</li>
+        <li><b>Cada empresa vê só os seus dados.</b> Seus clientes e conversas não se misturam com os de ninguém.</li>
+      </ul>
+    </div>
+    <div class="quote">
+      <p>A Mi.IA cuida da conversa. O fechamento continua sendo seu.</p>
+      <span>Ela prepara o cliente, você faz a venda.</span>
+    </div>
+  </div>
+</section>
+
+<!-- MI ZAP -->
+<section style="background:var(--paper-2)">
+  <div class="wrap zap">
+    <div class="zap-box" aria-label="Exemplo da ficha do cliente dentro do WhatsApp Web">
+      <div class="side-title"><b>Ficha do cliente</b><span class="pill warm">Lead quente</span></div>
+      <div class="row"><span>Objetivo</span><span>Morar</span></div>
+      <div class="row"><span>Renda da família</span><span>Informada</span></div>
+      <div class="row"><span>Pediu visita</span><span>Sim</span></div>
+      <div class="row"><span>Mi.IA</span><span><span class="pill">Ativa nesta conversa</span></span></div>
+      <div class="steps"><em>Novo</em><em>Conversando</em><em class="on">Visita</em><em>Proposta</em></div>
+    </div>
+    <div>
+      <h2>A extensão que abre ao lado da conversa</h2>
+      <p style="margin-top:16px;color:var(--ink-soft);font-size:1.1rem">O Mi Zap é a extensão do Chrome que traz a Mi.IA e as ferramentas de CRM para dentro do WhatsApp Web, sem você sair da conversa.</p>
+      <ul>
+        <li>Ficha do cliente, funil de vendas e anotações ao lado da conversa</li>
+        <li>Etapas do funil suas: você renomeia, muda a cor e a ordem</li>
+        <li>Respostas rápidas por empreendimento</li>
+        <li>Lista de contatos em planilha, com importação e exportação</li>
+        <li>Disparo para a sua lista com proteções: limite diário, horário comercial e opção “SAIR”</li>
+        <li>Equipe com permissões por corretor</li>
+        <li>Conecta seu WhatsApp lendo um QR code, sem trocar de número</li>
+      </ul>
+      <p style="margin-top:18px;color:var(--ink-soft);font-size:.97rem">Privacidade: a extensão lê só o número do contato da conversa aberta. Ela não lê o texto das suas mensagens.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section id="planos">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Comece grátis. Pague só quando fizer sentido.</h2>
+      <p>Todo mundo começa com 7 dias com tudo liberado, inclusive a Mi.IA. Passou o teste, a conta volta pro plano grátis sozinha, sem cobrança surpresa.</p>
+    </div>
+
+    <div class="plans">
+      <div class="plan">
+        <h3>Grátis</h3>
+        <p class="desc">Para organizar seus contatos no WhatsApp Web.</p>
+        <div class="price">R$ 0</div>
+        <ul>
+          <li>Ficha do cliente e anotações</li>
+          <li>Respostas rápidas</li>
+          <li>Ler as etapas do funil</li>
+          <li>Conectar seu WhatsApp</li>
+          <li>Configurar a Mi.IA</li>
+          <li>Chatbot simples</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/5511920036576?text=Oi!%20Quero%20come%C3%A7ar%20no%20plano%20gr%C3%A1tis%20(MIA-SITE)" target="_blank" rel="noopener">Começar grátis</a>
+      </div>
+
+      <div class="plan featured">
+        <span class="tag">Com a Mi.IA atendendo</span>
+        <h3>Pago com a Mi.IA</h3>
+        <p class="desc">Tudo do plano Pago, mais a vendedora com IA atendendo no seu WhatsApp.</p>
+        <div class="price">R$ 50 <small>por mês</small></div>
+        <ul>
+          <li>Tudo do plano Pago</li>
+          <li>Mi.IA atendendo seus clientes</li>
+          <li>Áudio: entende e responde</li>
+          <li>Retomada de lead em até 3 tentativas</li>
+          <li>Avisos de lead quente, visita e cliente esperando</li>
+          <li>Relatório semanal</li>
+          <li>Pré-pago: pagou, usou</li>
+        </ul>
+        <a class="btn btn-light" href="https://wa.me/5511920036576?text=Oi!%20Quero%20a%20Mi.IA%20no%20meu%20WhatsApp%20(MIA-SITE)" target="_blank" rel="noopener">Testar 7 dias grátis</a>
+      </div>
+
+      <div class="plan">
+        <h3>Pago</h3>
+        <p class="desc">Todas as ferramentas de CRM, sem a IA.</p>
+        <div class="price">R$ 199 <small>por ano</small></div>
+        <ul>
+          <li>Tudo do plano Grátis</li>
+          <li>Funil de vendas editável</li>
+          <li>Planilha de contatos</li>
+          <li>Lembretes e agendamento</li>
+          <li>Disparo com proteções</li>
+          <li>Equipe e convites</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/5511920036576?text=Oi!%20Quero%20saber%20do%20plano%20Pago%20(MIA-SITE)" target="_blank" rel="noopener">Quero este plano</a>
+      </div>
+    </div>
+    <p class="plans-note">O teste grátis começa quando o primeiro corretor da sua empresa aceita o convite.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="duvidas" style="padding-top:20px">
+  <div class="wrap">
+    <h2 style="margin-bottom:34px">Dúvidas comuns</h2>
+    <div class="faq">
+      <details>
+        <summary>Preciso trocar de número?</summary>
+        <p>Não. Você conecta o seu próprio WhatsApp lendo um QR code, e a Mi.IA passa a atender por ele.</p>
+      </details>
+      <details>
+        <summary>A Mi.IA substitui o corretor?</summary>
+        <p>Não. Ela cuida do primeiro atendimento, da qualificação e da retomada. Quando o cliente está pronto, ela avisa você, e a visita, a proposta e o fechamento continuam com você.</p>
+      </details>
+      <details>
+        <summary>E se eu quiser falar com o cliente no meio da conversa?</summary>
+        <p>Você pausa a Mi.IA naquela conversa, atende o cliente e depois devolve pra ela quando quiser.</p>
+      </details>
+      <details>
+        <summary>Ela pode passar informação errada?</summary>
+        <p>Ela foi pensada para não inventar nada. As informações dos empreendimentos vêm do material oficial que você cadastra, e o que ela não encontra ali, ela não afirma.</p>
+      </details>
+      <details>
+        <summary>Como funciona o teste de 7 dias?</summary>
+        <p>Você entra por convite e usa tudo liberado, inclusive a Mi.IA, por 7 dias. Depois disso a conta volta ao plano grátis sozinha, até você escolher um plano pago.</p>
+      </details>
+      <details>
+        <summary>Como eu pago?</summary>
+        <p>O plano com a Mi.IA é mensal e pré-pago: você paga e usa. O plano Pago, sem IA, é anual.</p>
+      </details>
+      <details>
+        <summary>Serve para quem trabalha com outros tipos de imóvel?</summary>
+        <p>Sim. A Mi.IA foi criada no dia a dia de um corretor de imóveis, com foco em corretores e imobiliárias, e você ajusta o tom e o material dela para o seu mercado.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap">
+    <h2>Deixe a Mi.IA cuidar do primeiro “oi”.</h2>
+    <p>Teste 7 dias grátis, com tudo liberado.</p>
+    <a class="btn btn-light" href="https://wa.me/5511920036576?text=Oi!%20Quero%20testar%20a%20Mi.IA%207%20dias%20gr%C3%A1tis%20(MIA-SITE)" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#topo" aria-label="Mi.IA">Mi<i></i>IA</a>
+    <p>A Mi.IA e o Mi Zap não são produtos do WhatsApp nem da Meta. WhatsApp é marca de seus respectivos proprietários.</p>
+  </div>
+</footer>
+
+<!-- CHAT DA MI.IA -->
+<button class="mc-btn" id="mcBtn" type="button" aria-label="Abrir conversa com a Mi.IA" aria-expanded="false">
+  <span class="avatar">Mi</span><span class="t">Fale com a Mi.IA</span>
+</button>
+<section class="mc-panel" id="mcPanel" role="dialog" aria-label="Conversa com a Mi.IA" style="padding:0">
+  <div class="mc-head">
+    <div class="avatar">Mi</div>
+    <div><b>Mi.IA</b><span>Tire suas dúvidas agora</span></div>
+    <button class="mc-x" id="mcX" type="button" aria-label="Fechar conversa">×</button>
+  </div>
+  <div class="mc-msgs" id="mcMsgs" aria-live="polite">
+    <div class="mc-dots" id="mcDots" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+  <div class="mc-chips" id="mcChips">
+    <button type="button">Como funciona?</button>
+    <button type="button">Quanto custa?</button>
+    <button type="button">Quero testar</button>
+  </div>
+  <form class="mc-form" id="mcForm">
+    <input id="mcIn" type="text" maxlength="800" placeholder="Escreva sua dúvida" aria-label="Sua mensagem" autocomplete="off">
+    <button type="submit" id="mcSend">Enviar</button>
+  </form>
+</section>
+
+<script>
+(function(){
+  var API = "https://bia.mizunoimob.com/webhook/mia-site";
+  var ZAP = "https://wa.me/5511920036576?text=Oi!%20Vim%20pela%20p%C3%A1gina%20da%20Mi.IA%20(MIA-SITE)";
+  var btn=document.getElementById('mcBtn'), panel=document.getElementById('mcPanel'), box=document.getElementById('mcMsgs'),
+      dots=document.getElementById('mcDots'), form=document.getElementById('mcForm'), inp=document.getElementById('mcIn'),
+      send=document.getElementById('mcSend'), chips=document.getElementById('mcChips');
+  var sess; try{ sess=localStorage.getItem('mc_s'); if(!sess){ sess='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8); localStorage.setItem('mc_s',sess);} }catch(e){ sess='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8); }
+  var started=false, busy=false;
+  function add(t,who){ var d=document.createElement('div'); d.className='mc-m '+who; d.textContent=t; box.insertBefore(d,dots); box.scrollTop=box.scrollHeight; }
+  function open(){ panel.classList.add('open'); btn.style.display='none'; btn.setAttribute('aria-expanded','true');
+    if(!started){ started=true; add('Oi! Eu sou a Mi.IA. Pode me perguntar o que quiser sobre como eu atendo seus clientes no WhatsApp.','bot'); }
+    setTimeout(function(){ inp.focus(); },50); }
+  function close(){ panel.classList.remove('open'); btn.style.display='flex'; btn.setAttribute('aria-expanded','false'); btn.focus(); }
+  function ask(text){
+    text=(text||'').trim(); if(!text||busy) return;
+    busy=true; send.disabled=true; chips.style.display='none'; add(text,'me'); inp.value='';
+    dots.classList.add('on'); box.scrollTop=box.scrollHeight;
+    var ctl=new AbortController(); var to=setTimeout(function(){ctl.abort()},45000);
+    fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessao:sess,mensagem:text}),signal:ctl.signal})
+      .then(function(r){ if(!r.ok) throw new Error('http'); return r.json(); })
+      .then(function(j){ add(j.resposta||'Pode repetir?','bot'); })
+      .catch(function(){ add('Não consegui responder agora. Me chama no WhatsApp: (11) 92003-6576','bot'); })
+      .finally(function(){ clearTimeout(to); dots.classList.remove('on'); busy=false; send.disabled=false; inp.focus(); });
+  }
+  btn.addEventListener('click',open);
+  document.getElementById('mcX').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&panel.classList.contains('open')) close(); });
+  form.addEventListener('submit',function(e){ e.preventDefault(); ask(inp.value); });
+  Array.prototype.forEach.call(chips.querySelectorAll('button'),function(b){ b.addEventListener('click',function(){ open(); ask(b.textContent); }); });
+})();
+</script>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var msgs = Array.prototype.slice.call(document.querySelectorAll('#chat .msg'));
+  var typing = document.getElementById('typing');
+  var alertBox = document.getElementById('alert');
+  if(reduce){ msgs.forEach(function(m){m.classList.add('show')}); alertBox.classList.add('show'); return; }
+  var i = 0;
+  function next(){
+    if(i >= msgs.length){ setTimeout(function(){ alertBox.classList.add('show'); }, 500); return; }
+    var m = msgs[i];
+    var isOut = m.classList.contains('out');
+    if(isOut){
+      typing.classList.add('on');
+      msgs[0].parentNode.appendChild(typing);
+      setTimeout(function(){
+        typing.classList.remove('on');
+        m.classList.add('show'); i++; setTimeout(next, 900);
+      }, 1300);
+    } else {
+      m.classList.add('show'); i++; setTimeout(next, 1100);
+    }
+  }
+  setTimeout(next, 700);
+})();
+</script>
+</body>
+</html>
