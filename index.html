@@ -641,6 +641,7 @@ footer p{max-width:60ch}
   </div>
   <form class="mc-form" id="mcForm">
     <input id="mcIn" type="text" maxlength="800" placeholder="Escreva sua dúvida" aria-label="Sua mensagem" autocomplete="off">
+    <button type="button" id="mcMic" aria-label="Gravar áudio" title="Falar com a Mi.IA" style="background:transparent;border:1px solid currentColor;border-radius:999px;width:42px;height:42px;cursor:pointer;font-size:18px;flex:none">🎤</button>
     <button type="submit" id="mcSend">Enviar</button>
   </form>
 </section>
@@ -676,6 +677,30 @@ footer p{max-width:60ch}
       .catch(function(){ add('Não consegui responder agora. Me chama no WhatsApp: (11) 92003-6576','bot'); })
       .finally(function(){ clearTimeout(to); dots.classList.remove('on'); busy=false; send.disabled=false; inp.focus(); });
   }
+
+  var mic=document.getElementById('mcMic'), rec=null, chunks=[], recT=null;
+  function sendAudio(blob,mime){
+    if(busy) return; busy=true; send.disabled=true; chips.style.display='none';
+    var me=document.createElement('div'); me.className='mc-m me'; me.textContent='🎤 Áudio enviado…'; box.insertBefore(me,dots);
+    dots.classList.add('on'); box.scrollTop=box.scrollHeight;
+    var fr=new FileReader(); fr.onload=function(){ var b64=String(fr.result).split(',')[1];
+      var ctl=new AbortController(); var to=setTimeout(function(){ctl.abort()},60000);
+      fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessao:sess,mensagem:'',audio:b64,mime:mime}),signal:ctl.signal})
+        .then(function(r){ if(!r.ok) throw new Error('http'); return r.json(); })
+        .then(function(j){ if(j.transcricao) me.textContent='🎤 '+j.transcricao; add(j.resposta||'Pode repetir?','bot'); setChips(j.resposta||''); })
+        .catch(function(){ me.textContent='🎤 Áudio'; add('Não consegui ouvir agora. Pode escrever? Ou me chama no WhatsApp: (11) 92003-6576','bot'); })
+        .finally(function(){ clearTimeout(to); dots.classList.remove('on'); busy=false; send.disabled=false; });
+    }; fr.readAsDataURL(blob); }
+  function stopRec(){ if(rec&&rec.state!=='inactive') rec.stop(); }
+  mic.addEventListener('click',function(){
+    if(rec&&rec.state==='recording'){ stopRec(); return; }
+    if(!navigator.mediaDevices||!window.MediaRecorder){ add('Seu navegador não grava áudio. Pode escrever aqui?','bot'); return; }
+    navigator.mediaDevices.getUserMedia({audio:true}).then(function(st){
+      chunks=[]; rec=new MediaRecorder(st); rec.ondataavailable=function(e){ if(e.data.size) chunks.push(e.data); };
+      rec.onstop=function(){ clearTimeout(recT); st.getTracks().forEach(function(t){t.stop()}); mic.textContent='🎤'; mic.style.background='transparent'; var m=rec.mimeType||'audio/webm'; if(chunks.length) sendAudio(new Blob(chunks,{type:m}),m); };
+      rec.start(); mic.textContent='⏹'; mic.style.background='#e5484d'; recT=setTimeout(stopRec,60000);
+    }).catch(function(){ add('Preciso da permissão do microfone pra ouvir. Ou escreva aqui 😊','bot'); });
+  });
   btn.addEventListener('click',open);
   document.getElementById('mcX').addEventListener('click',close);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&panel.classList.contains('open')) close(); });
