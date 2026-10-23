@@ -637,7 +637,7 @@ footer p{max-width:60ch}
   <div class="mc-chips" id="mcChips">
     <button type="button">Como funciona?</button>
     <button type="button">Quanto custa?</button>
-    <button type="button">Quero testar</button>
+    <button type="button">Quero instalar</button>
   </div>
   <form class="mc-form" id="mcForm">
     <input id="mcIn" type="text" maxlength="800" placeholder="Escreva sua dúvida" aria-label="Sua mensagem" autocomplete="off">
@@ -659,6 +659,8 @@ footer p{max-width:60ch}
       var a=document.createElement('a'); a.href=m[1]; a.target='_blank'; a.rel='noopener'; if(m[1].indexOf('.zip')>0) a.setAttribute('download','MiZap.zip'); a.textContent=m[1].indexOf('.zip')>0?'⬇ Baixar a extensão Mi Zap':m[1].indexOf('.pdf')>0?'Baixar o curso (PDF)':(m[1].indexOf('/guiado')>0?'Abrir o passo a passo guiado':(m[1].indexOf('/curso')>0?'Abrir o curso':m[1])); a.style.cssText='color:inherit;font-weight:700;text-decoration:underline'; el.appendChild(a); last=re.lastIndex; }
     if(last<t.length) el.appendChild(document.createTextNode(t.slice(last))); }
   function add(t,who){ var d=document.createElement('div'); d.className='mc-m '+who; if(who==='bot'){ linkify(d,t); } else { d.textContent=t; } box.insertBefore(d,dots); box.scrollTop=box.scrollHeight; }
+  function setChips(r){ var l; if(/feito|avisa|me diz|me conta|conseguiu|encontrou|clique|abra|digite|escolha|ligue/i.test(r)||/MiZap\.zip/.test(r)) l=['Feito ✅','Travei 😕','Não entendi']; else l=['Quero instalar','Quanto custa?','Como funciona?'];
+    chips.innerHTML=''; l.forEach(function(x){ var b=document.createElement('button'); b.type='button'; b.textContent=x; b.addEventListener('click',function(){ ask(x==='Feito ✅'?'feito':(x==='Travei 😕'?'travei':x)); }); chips.appendChild(b); }); chips.style.display=''; }
   function open(){ panel.classList.add('open'); btn.style.display='none'; btn.setAttribute('aria-expanded','true');
     if(!started){ started=true; add('Oi! Eu sou a Mi.IA. Pode me perguntar o que quiser sobre como eu atendo seus clientes no WhatsApp.','bot'); }
     setTimeout(function(){ inp.focus(); },50); }
@@ -670,7 +672,7 @@ footer p{max-width:60ch}
     var ctl=new AbortController(); var to=setTimeout(function(){ctl.abort()},45000);
     fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessao:sess,mensagem:text}),signal:ctl.signal})
       .then(function(r){ if(!r.ok) throw new Error('http'); return r.json(); })
-      .then(function(j){ add(j.resposta||'Pode repetir?','bot'); })
+      .then(function(j){ var r=j.resposta||'Pode repetir?'; add(r,'bot'); setChips(r); })
       .catch(function(){ add('Não consegui responder agora. Me chama no WhatsApp: (11) 92003-6576','bot'); })
       .finally(function(){ clearTimeout(to); dots.classList.remove('on'); busy=false; send.disabled=false; inp.focus(); });
   }
