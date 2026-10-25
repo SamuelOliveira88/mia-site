@@ -1,16 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Curso Mi Zap e Mi.IA – do zero até a primeira campanha</title>
-<meta name="description" content="Curso passo a passo: instalar a extensão, conectar o WhatsApp, configurar a Mi.IA, importar contatos e fazer sua primeira campanha.">
-<meta name="robots" content="noindex">
-<meta name="theme-color" content="#1A1038">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235B3DF5'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EMi%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title data-i="curso.head.title">Curso Mi Zap e Mi.IA – do zero até a primeira campanha</title>
+<meta content="Curso passo a passo: instalar a extensão, conectar o WhatsApp, configurar a Mi.IA, importar contatos e fazer sua primeira campanha." data-i-attr="content:curso.head.description" name="description"/>
+<meta content="noindex" name="robots"/>
+<meta content="#1A1038" name="theme-color"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235B3DF5'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EMi%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --paper:#F5F2FB;--paper-2:#EBE6F7;--ink:#1A1038;--ink-soft:#4A4266;
@@ -126,454 +127,398 @@ main{padding:44px clamp(20px,5vw,64px) 90px;max-width:900px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
-<script defer src="/_vercel/insights/script.js"></script>
+<script defer="" src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-
 <div class="top">
-  <a class="logo" href="#aula-1" aria-label="Mi.IA">Mi<i></i>IA</a>
-  <span class="t">Curso: da instalação à primeira campanha</span>
-  <a href="/guiado" style="background:#8E78FF;color:#fff;font-weight:700;font-size:.9rem;padding:8px 14px;border-radius:99px;text-decoration:none;white-space:nowrap">Fazer passo a passo guiado</a>
-  <div class="prog" aria-live="polite"><span id="progTxt">0 de 12 aulas</span><div class="bar"><b id="progBar"></b></div></div>
-  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="side">Aulas</button>
+<a aria-label="Mi.IA" class="logo" href="#aula-1">Mi<i></i>IA</a>
+<span class="t" data-i="curso.001">Curso: da instalação à primeira campanha</span>
+<a data-i="curso.002" href="/guiado" style="background:#8E78FF;color:#fff;font-weight:700;font-size:.9rem;padding:8px 14px;border-radius:99px;text-decoration:none;white-space:nowrap">Fazer passo a passo guiado</a>
+<span data-lang-sw style="color:#CFC8EA"></span>
+<div aria-live="polite" class="prog"><span data-i="curso.003" id="progTxt">0 de 12 aulas</span><div class="bar"><b id="progBar"></b></div></div>
+<button aria-controls="side" aria-expanded="false" class="menu-btn" data-i="curso.004" id="menuBtn" type="button">Aulas</button>
 </div>
-
 <div class="shell">
-<nav class="side" id="side" aria-label="Aulas do curso">
-  <h2>Aulas do curso</h2>
-  <ol id="toc"></ol>
+<nav aria-label="Aulas do curso" class="side" data-i-attr="aria-label:curso.005" id="side">
+<h2 data-i="curso.006">Aulas do curso</h2>
+<ol id="toc"></ol>
 </nav>
-
 <main id="conteudo">
-
 <!-- AULA 1 -->
-<article class="lesson" id="l-aula-1" data-title="Como tudo funciona">
-  <h1>Como tudo funciona</h1>
-  <p class="sub">Antes de mexer em qualquer coisa, entenda as três peças. Leva poucos minutos e deixa todo o resto mais fácil.</p>
-
-  <h2>As três peças</h2>
-  <div class="cmp">
-    <div>
-      <h3>1. A extensão (Mi Zap)</h3>
-      <ul>
-        <li>Fica instalada no seu Google Chrome</li>
-        <li>Abre uma barra ao lado do seu WhatsApp Web</li>
-        <li>Mostra a ficha de cada cliente, o funil, as notas e as respostas rápidas</li>
-        <li>É o seu painel de controle</li>
-      </ul>
-    </div>
-    <div>
-      <h3>2. A Mi.IA</h3>
-      <ul>
-        <li>É a vendedora com inteligência artificial</li>
-        <li>Trabalha num servidor, não dentro do seu computador</li>
-        <li>Atende seus clientes no WhatsApp, entende texto e áudio</li>
-        <li>Avisa você quando o cliente está pronto</li>
-      </ul>
-    </div>
-  </div>
-  <p><b>3. A sua conta.</b> É onde ficam seus contatos, suas etapas do funil, suas respostas e suas campanhas. Cada empresa enxerga apenas os próprios dados.</p>
-
-  <h2>Como uma conversa acontece</h2>
-  <ol class="steps">
-    <li><b>O cliente manda mensagem</b><span>Pode ser texto ou áudio, a qualquer hora.</span></li>
-    <li><b>A Mi.IA responde</b><span>Ela entende o que o cliente quer e usa o material que você cadastrou.</span></li>
-    <li><b>A ficha aparece na sua barra lateral</b><span>Você abre a conversa e já vê a etapa do funil e as anotações.</span></li>
-    <li><b>Você entra na hora certa</b><span>Quando o cliente pede visita ou está quente, você recebe o aviso e assume.</span></li>
-  </ol>
-
-  <div class="note tip"><b>Importante saber</b>A extensão só lê o número do contato da conversa aberta. Ela não lê o texto das suas mensagens e não envia nada sem você pedir.</div>
-
-  <h2>O que você vai aprender</h2>
-  <ul class="plain">
-    <li>Instalar a extensão e conectar seu WhatsApp</li>
-    <li>Conhecer a barra lateral e o funil</li>
-    <li>Ensinar a Mi.IA a falar do seu jeito</li>
-    <li>Importar seus contatos e organizar em planilha</li>
-    <li>Fazer sua primeira campanha, com segurança</li>
-  </ul>
-  <div class="note warn"><b>Aviso</b>A Mi.IA e o Mi Zap não são produtos do WhatsApp nem da Meta.</div>
+<article class="lesson" data-title="Como tudo funciona" id="l-aula-1">
+<h1 data-i="curso.007">Como tudo funciona</h1>
+<p class="sub" data-i="curso.008">Antes de mexer em qualquer coisa, entenda as três peças. Leva poucos minutos e deixa todo o resto mais fácil.</p>
+<h2 data-i="curso.009">As três peças</h2>
+<div class="cmp">
+<div>
+<h3 data-i="curso.010">1. A extensão (Mi Zap)</h3>
+<ul>
+<li data-i="curso.011">Fica instalada no seu Google Chrome</li>
+<li data-i="curso.012">Abre uma barra ao lado do seu WhatsApp Web</li>
+<li data-i="curso.013">Mostra a ficha de cada cliente, o funil, as notas e as respostas rápidas</li>
+<li data-i="curso.014">É o seu painel de controle</li>
+</ul>
+</div>
+<div>
+<h3 data-i="curso.015">2. A Mi.IA</h3>
+<ul>
+<li data-i="curso.016">É a vendedora com inteligência artificial</li>
+<li data-i="curso.017">Trabalha num servidor, não dentro do seu computador</li>
+<li data-i="curso.018">Atende seus clientes no WhatsApp, entende texto e áudio</li>
+<li data-i="curso.019">Avisa você quando o cliente está pronto</li>
+</ul>
+</div>
+</div>
+<p data-i="curso.020"><b>3. A sua conta.</b> É onde ficam seus contatos, suas etapas do funil, suas respostas e suas campanhas. Cada empresa enxerga apenas os próprios dados.</p>
+<h2 data-i="curso.021">Como uma conversa acontece</h2>
+<ol class="steps">
+<li><b data-i="curso.022">O cliente manda mensagem</b><span data-i="curso.023">Pode ser texto ou áudio, a qualquer hora.</span></li>
+<li><b data-i="curso.024">A Mi.IA responde</b><span data-i="curso.025">Ela entende o que o cliente quer e usa o material que você cadastrou.</span></li>
+<li><b data-i="curso.026">A ficha aparece na sua barra lateral</b><span data-i="curso.027">Você abre a conversa e já vê a etapa do funil e as anotações.</span></li>
+<li><b data-i="curso.028">Você entra na hora certa</b><span data-i="curso.029">Quando o cliente pede visita ou está quente, você recebe o aviso e assume.</span></li>
+</ol>
+<div class="note tip" data-i="curso.030"><b>Importante saber</b>A extensão só lê o número do contato da conversa aberta. Ela não lê o texto das suas mensagens e não envia nada sem você pedir.</div>
+<h2 data-i="curso.031">O que você vai aprender</h2>
+<ul class="plain">
+<li data-i="curso.032">Instalar a extensão e conectar seu WhatsApp</li>
+<li data-i="curso.033">Conhecer a barra lateral e o funil</li>
+<li data-i="curso.034">Ensinar a Mi.IA a falar do seu jeito</li>
+<li data-i="curso.035">Importar seus contatos e organizar em planilha</li>
+<li data-i="curso.036">Fazer sua primeira campanha, com segurança</li>
+</ul>
+<div class="note warn" data-i="curso.037"><b>Aviso</b>A Mi.IA e o Mi Zap não são produtos do WhatsApp nem da Meta.</div>
 </article>
-
 <!-- AULA 2 -->
-<article class="lesson" id="l-aula-2" data-title="Instalar a extensão">
-  <h1>Instalar a extensão</h1>
-  <p class="sub">Dá para fazer em uns 5 minutos. Faça um passo de cada vez e só vá para o próximo quando o anterior estiver pronto.</p>
-
-  <h2>Antes de começar</h2>
-  <ul class="plain">
-    <li>Você precisa do <b>Google Chrome no computador</b>. No celular não funciona.</li>
-    <li>O WhatsApp do seu celular precisa estar à mão (vamos usar na próxima aula).</li>
-    <li>Você precisa do arquivo <b>.zip</b> da extensão que recebeu junto com o convite.</li>
-  </ul>
-
-  <h2>Passo a passo</h2>
-  <ol class="steps">
-    <li><b>Salve o arquivo .zip</b><span>Coloque numa pasta fácil de achar, como a Área de trabalho.</span></li>
-    <li><b>Extraia o arquivo</b><span>Clique com o botão direito no .zip e escolha <b>Extrair tudo</b>. Depois clique em <b>Extrair</b>. Vai aparecer uma pasta nova.</span></li>
-    <li><b>Abra a página de extensões do Chrome</b><span>Copie <code>chrome://extensions</code>, cole na barra de endereço do Chrome e aperte Enter. O Chrome não deixa abrir esse endereço clicando, por isso é preciso copiar e colar.</span></li>
-    <li><b>Ligue o Modo do desenvolvedor</b><span>É o botão no canto de cima, à direita. Ele deve ficar azul ou ligado.</span></li>
-    <li><b>Clique em “Carregar sem compactação”</b><span>O botão aparece no canto de cima, à esquerda, depois que o modo foi ligado.</span></li>
-    <li><b>Escolha a pasta certa</b><span>Entre nas pastas extraídas até achar a pasta <b>MiZap</b>. Dentro dela deve haver um arquivo chamado <code>manifest.json</code>. Selecione essa pasta.</span></li>
-    <li><b>Abra o WhatsApp Web</b><span>Entre em <code>web.whatsapp.com</code> (ou atualize a página com F5). A barra da extensão aparece ao lado da conversa.</span></li>
-  </ol>
-
-  <div class="note stop"><b>Não apague a pasta depois</b>O Chrome usa essa pasta para rodar a extensão. Se você apagar ou mover a pasta, a extensão para de funcionar.</div>
-
-  <h2>Se algo deu errado</h2>
-  <table class="table">
-    <tr><th>O que aconteceu</th><th>O que fazer</th></tr>
-    <tr><td>O Chrome diz que não achou o manifest</td><td>Você escolheu a pasta de fora. Entre nela e escolha a pasta <b>MiZap</b>, a que tem o <code>manifest.json</code> dentro.</td></tr>
-    <tr><td>Já havia uma versão antiga instalada</td><td>Na página de extensões, clique em <b>Remover</b> na antiga. Depois carregue a pasta nova.</td></tr>
-    <tr><td>Instalei o Mi Zap e o Mi Central juntos</td><td>Deixe só um ligado. Os dois usam o mesmo ícone de barra lateral e se atrapalham.</td></tr>
-    <tr><td>A barra não aparece no WhatsApp Web</td><td>Atualize a página com F5. Se continuar, confira se a extensão está ligada em <code>chrome://extensions</code>.</td></tr>
-  </table>
-  <div class="note tip"><b>Ficou preso?</b>Fale com a Mi.IA no chat do site e conte em que passo parou. Ela te ajuda um passo de cada vez.</div>
+<article class="lesson" data-title="Instalar a extensão" id="l-aula-2">
+<h1 data-i="curso.038">Instalar a extensão</h1>
+<p class="sub" data-i="curso.039">Dá para fazer em uns 5 minutos. Faça um passo de cada vez e só vá para o próximo quando o anterior estiver pronto.</p>
+<h2 data-i="curso.040">Antes de começar</h2>
+<ul class="plain">
+<li data-i="curso.041">Você precisa do <b>Google Chrome no computador</b>. No celular não funciona.</li>
+<li data-i="curso.042">O WhatsApp do seu celular precisa estar à mão (vamos usar na próxima aula).</li>
+<li data-i="curso.043">Você precisa do arquivo <b>.zip</b> da extensão que recebeu junto com o convite.</li>
+</ul>
+<h2 data-i="curso.044">Passo a passo</h2>
+<ol class="steps">
+<li><b data-i="curso.045">Salve o arquivo .zip</b><span data-i="curso.046">Coloque numa pasta fácil de achar, como a Área de trabalho.</span></li>
+<li><b data-i="curso.047">Extraia o arquivo</b><span data-i="curso.048">Clique com o botão direito no .zip e escolha <b>Extrair tudo</b>. Depois clique em <b>Extrair</b>. Vai aparecer uma pasta nova.</span></li>
+<li><b data-i="curso.049">Abra a página de extensões do Chrome</b><span data-i="curso.050">Copie <code>chrome://extensions</code>, cole na barra de endereço do Chrome e aperte Enter. O Chrome não deixa abrir esse endereço clicando, por isso é preciso copiar e colar.</span></li>
+<li><b data-i="curso.051">Ligue o Modo do desenvolvedor</b><span data-i="curso.052">É o botão no canto de cima, à direita. Ele deve ficar azul ou ligado.</span></li>
+<li><b data-i="curso.053">Clique em “Carregar sem compactação”</b><span data-i="curso.054">O botão aparece no canto de cima, à esquerda, depois que o modo foi ligado.</span></li>
+<li><b data-i="curso.055">Escolha a pasta certa</b><span data-i="curso.056">Entre nas pastas extraídas até achar a pasta <b>MiZap</b>. Dentro dela deve haver um arquivo chamado <code>manifest.json</code>. Selecione essa pasta.</span></li>
+<li><b data-i="curso.057">Abra o WhatsApp Web</b><span data-i="curso.058">Entre em <code>web.whatsapp.com</code> (ou atualize a página com F5). A barra da extensão aparece ao lado da conversa.</span></li>
+</ol>
+<div class="note stop" data-i="curso.059"><b>Não apague a pasta depois</b>O Chrome usa essa pasta para rodar a extensão. Se você apagar ou mover a pasta, a extensão para de funcionar.</div>
+<h2 data-i="curso.060">Se algo deu errado</h2>
+<table class="table">
+<tr><th data-i="curso.061">O que aconteceu</th><th data-i="curso.062">O que fazer</th></tr>
+<tr><td data-i="curso.063">O Chrome diz que não achou o manifest</td><td data-i="curso.064">Você escolheu a pasta de fora. Entre nela e escolha a pasta <b>MiZap</b>, a que tem o <code>manifest.json</code> dentro.</td></tr>
+<tr><td data-i="curso.065">Já havia uma versão antiga instalada</td><td data-i="curso.066">Na página de extensões, clique em <b>Remover</b> na antiga. Depois carregue a pasta nova.</td></tr>
+<tr><td data-i="curso.067">Instalei o Mi Zap e o Mi Central juntos</td><td data-i="curso.068">Deixe só um ligado. Os dois usam o mesmo ícone de barra lateral e se atrapalham.</td></tr>
+<tr><td data-i="curso.069">A barra não aparece no WhatsApp Web</td><td data-i="curso.070">Atualize a página com F5. Se continuar, confira se a extensão está ligada em <code>chrome://extensions</code>.</td></tr>
+</table>
+<div class="note tip" data-i="curso.071"><b>Ficou preso?</b>Fale com a Mi.IA no chat do site e conte em que passo parou. Ela te ajuda um passo de cada vez.</div>
 </article>
-
 <!-- AULA 3 -->
-<article class="lesson" id="l-aula-3" data-title="Criar a conta e conectar o WhatsApp">
-  <h1>Criar a conta e conectar o WhatsApp</h1>
-  <p class="sub">Duas coisas nesta aula: entrar na sua conta e ligar o seu WhatsApp à Mi.IA.</p>
-
-  <h2>Criar a conta</h2>
-  <ol class="steps">
-    <li><b>Clique no ícone da extensão</b><span>Ele fica no canto de cima do Chrome. Se não aparecer, clique no desenho de uma peça de quebra-cabeça e fixe a extensão.</span></li>
-    <li><b>Escolha criar conta com convite</b><span>É o link embaixo do botão Entrar.</span></li>
-    <li><b>Preencha os dados</b><span>Código do convite (8 letras e números), seu nome, seu e-mail e uma senha. Clique em <b>Criar conta</b> uma vez só.</span></li>
-    <li><b>Confirme o e-mail</b><span>Você recebe uma mensagem. Abra e clique no link de confirmação. Olhe também a caixa de spam.</span></li>
-    <li><b>Entre</b><span>Volte à extensão e entre com o e-mail e a senha.</span></li>
-  </ol>
-  <div class="note tip"><b>Seus 7 dias grátis</b>O teste começa quando o primeiro corretor da sua empresa aceita o convite. Durante o teste tudo fica liberado, inclusive a Mi.IA.</div>
-
-  <h2>Conectar o WhatsApp</h2>
-  <p>A Mi.IA atende pelo seu próprio número. Você não troca de chip nem de número: basta ler um QR code, como já faz no WhatsApp Web.</p>
-  <ol class="steps">
-    <li><b>Abra a aba WhatsApp da extensão</b><span>Vai aparecer um QR code.</span></li>
-    <li><b>Pegue o celular</b><span>Abra o WhatsApp, vá em <b>Aparelhos conectados</b> e toque em <b>Conectar um aparelho</b>.</span></li>
-    <li><b>Aponte a câmera para o QR code</b><span>Quando conectar, a extensão avisa na tela.</span></li>
-  </ol>
-  <div class="note warn"><b>Dica de segurança</b>Prefira usar o número de trabalho. Esse número vai ficar ligado à Mi.IA.</div>
-  <div class="note stop"><b>Se a conexão cair</b>Atualize a página do WhatsApp Web. Se continuar, gere um QR code novo e leia de novo.</div>
+<article class="lesson" data-title="Criar a conta e conectar o WhatsApp" id="l-aula-3">
+<h1 data-i="curso.072">Criar a conta e conectar o WhatsApp</h1>
+<p class="sub" data-i="curso.073">Duas coisas nesta aula: entrar na sua conta e ligar o seu WhatsApp à Mi.IA.</p>
+<h2 data-i="curso.074">Criar a conta</h2>
+<ol class="steps">
+<li><b data-i="curso.075">Clique no ícone da extensão</b><span data-i="curso.076">Ele fica no canto de cima do Chrome. Se não aparecer, clique no desenho de uma peça de quebra-cabeça e fixe a extensão.</span></li>
+<li><b data-i="curso.077">Escolha criar conta com convite</b><span data-i="curso.078">É o link embaixo do botão Entrar.</span></li>
+<li><b data-i="curso.079">Preencha os dados</b><span data-i="curso.080">Código do convite (8 letras e números), seu nome, seu e-mail e uma senha. Clique em <b>Criar conta</b> uma vez só.</span></li>
+<li><b data-i="curso.081">Confirme o e-mail</b><span data-i="curso.082">Você recebe uma mensagem. Abra e clique no link de confirmação. Olhe também a caixa de spam.</span></li>
+<li><b data-i="curso.083">Entre</b><span data-i="curso.084">Volte à extensão e entre com o e-mail e a senha.</span></li>
+</ol>
+<div class="note tip" data-i="curso.085"><b>Seus 7 dias grátis</b>O teste começa quando o primeiro corretor da sua empresa aceita o convite. Durante o teste tudo fica liberado, inclusive a Mi.IA.</div>
+<h2 data-i="curso.086">Conectar o WhatsApp</h2>
+<p data-i="curso.087">A Mi.IA atende pelo seu próprio número. Você não troca de chip nem de número: basta ler um QR code, como já faz no WhatsApp Web.</p>
+<ol class="steps">
+<li><b data-i="curso.088">Abra a aba WhatsApp da extensão</b><span data-i="curso.089">Vai aparecer um QR code.</span></li>
+<li><b data-i="curso.090">Pegue o celular</b><span data-i="curso.091">Abra o WhatsApp, vá em <b>Aparelhos conectados</b> e toque em <b>Conectar um aparelho</b>.</span></li>
+<li><b data-i="curso.092">Aponte a câmera para o QR code</b><span data-i="curso.093">Quando conectar, a extensão avisa na tela.</span></li>
+</ol>
+<div class="note warn" data-i="curso.094"><b>Dica de segurança</b>Prefira usar o número de trabalho. Esse número vai ficar ligado à Mi.IA.</div>
+<div class="note stop" data-i="curso.095"><b>Se a conexão cair</b>Atualize a página do WhatsApp Web. Se continuar, gere um QR code novo e leia de novo.</div>
 </article>
-
 <!-- AULA 4 -->
-<article class="lesson" id="l-aula-4" data-title="A barra lateral e o dia a dia">
-  <h1>A barra lateral e o dia a dia</h1>
-  <p class="sub">É aqui que você vai passar a maior parte do tempo. Ao abrir uma conversa, a barra mostra tudo sobre aquele cliente.</p>
-
-  <h2>O que aparece na ficha do cliente</h2>
-  <ul class="plain">
-    <li><b>Etapa do funil:</b> em que ponto da venda ele está</li>
-    <li><b>Anotações:</b> o que você combinou com ele</li>
-    <li><b>Situação da Mi.IA:</b> se ela está atendendo essa conversa</li>
-    <li><b>Empreendimento de interesse</b> e o dono do contato</li>
-  </ul>
-
-  <h2>Os botões que você mais vai usar</h2>
-  <table class="table">
-    <tr><th>Botão</th><th>Para que serve</th></tr>
-    <tr><td><b>Eu assumo</b></td><td>Pausa a Mi.IA só nessa conversa. Você fala com o cliente e, quando quiser, devolve para ela.</td></tr>
-    <tr><td><b>Não é cliente</b></td><td>Avisa que o contato não é um cliente (família, amigo, fornecedor). A Mi.IA para de falar com ele.</td></tr>
-    <tr><td><b>É cliente, sim</b></td><td>Desfaz o anterior. O contato volta a ser atendido.</td></tr>
-  </table>
-
-  <h2>Respostas rápidas</h2>
-  <p>São mensagens prontas que você usa com um clique. Você pode guardar por empreendimento, como endereço, forma de visita ou lista de documentos.</p>
-  <div class="note tip"><b>Rotina simples</b>De manhã, abra o WhatsApp Web, veja quem está em “visita” ou “quente” e comece por eles. A Mi.IA já deixou a ficha pronta.</div>
-
-  <h2>Quando a Mi.IA avisa você</h2>
-  <ul class="plain">
-    <li>Quando o cliente pede visita</li>
-    <li>Quando o lead está quente</li>
-    <li>Quando o cliente fica 20 minutos esperando resposta</li>
-  </ul>
+<article class="lesson" data-title="A barra lateral e o dia a dia" id="l-aula-4">
+<h1 data-i="curso.096">A barra lateral e o dia a dia</h1>
+<p class="sub" data-i="curso.097">É aqui que você vai passar a maior parte do tempo. Ao abrir uma conversa, a barra mostra tudo sobre aquele cliente.</p>
+<h2 data-i="curso.098">O que aparece na ficha do cliente</h2>
+<ul class="plain">
+<li data-i="curso.099"><b>Etapa do funil:</b> em que ponto da venda ele está</li>
+<li data-i="curso.100"><b>Anotações:</b> o que você combinou com ele</li>
+<li data-i="curso.101"><b>Situação da Mi.IA:</b> se ela está atendendo essa conversa</li>
+<li data-i="curso.102"><b>Empreendimento de interesse</b> e o dono do contato</li>
+</ul>
+<h2 data-i="curso.103">Os botões que você mais vai usar</h2>
+<table class="table">
+<tr><th data-i="curso.104">Botão</th><th data-i="curso.105">Para que serve</th></tr>
+<tr><td><b data-i="curso.106">Eu assumo</b></td><td data-i="curso.107">Pausa a Mi.IA só nessa conversa. Você fala com o cliente e, quando quiser, devolve para ela.</td></tr>
+<tr><td><b data-i="curso.108">Não é cliente</b></td><td data-i="curso.109">Avisa que o contato não é um cliente (família, amigo, fornecedor). A Mi.IA para de falar com ele.</td></tr>
+<tr><td><b data-i="curso.110">É cliente, sim</b></td><td data-i="curso.111">Desfaz o anterior. O contato volta a ser atendido.</td></tr>
+</table>
+<h2 data-i="curso.112">Respostas rápidas</h2>
+<p data-i="curso.113">São mensagens prontas que você usa com um clique. Você pode guardar por empreendimento, como endereço, forma de visita ou lista de documentos.</p>
+<div class="note tip" data-i="curso.114"><b>Rotina simples</b>De manhã, abra o WhatsApp Web, veja quem está em “visita” ou “quente” e comece por eles. A Mi.IA já deixou a ficha pronta.</div>
+<h2 data-i="curso.115">Quando a Mi.IA avisa você</h2>
+<ul class="plain">
+<li data-i="curso.116">Quando o cliente pede visita</li>
+<li data-i="curso.117">Quando o lead está quente</li>
+<li data-i="curso.118">Quando o cliente fica 20 minutos esperando resposta</li>
+</ul>
 </article>
-
 <!-- AULA 5 -->
-<article class="lesson" id="l-aula-5" data-title="Montar o seu funil">
-  <h1>Montar o seu funil</h1>
-  <p class="sub">O funil é a fila de vendas: cada cliente fica numa etapa, do primeiro contato até o fechamento. As etapas são suas.</p>
-
-  <h2>Etapas de exemplo</h2>
-  <p>Você pode usar estas ou criar as suas:</p>
-  <ul class="plain">
-    <li>Novo</li>
-    <li>Conversando</li>
-    <li>Visita agendada</li>
-    <li>Proposta</li>
-    <li>Fechado</li>
-  </ul>
-
-  <h2>Como personalizar</h2>
-  <ul class="plain">
-    <li><b>Renomear:</b> troque o nome da etapa para o que faz sentido para você</li>
-    <li><b>Mudar a cor:</b> deixe as etapas importantes mais chamativas</li>
-    <li><b>Mudar a ordem:</b> coloque na ordem em que a venda acontece</li>
-  </ul>
-  <div class="note tip"><b>Menos é mais</b>Comece com poucas etapas. Cinco ou seis são suficientes para a maioria dos corretores. Dá para mudar depois sem perder nada.</div>
-  <div class="note warn"><b>Atenção</b>Quem só está no plano grátis consegue <b>ler</b> as etapas. Para editar o funil é preciso o plano Pago ou o teste de 7 dias.</div>
+<article class="lesson" data-title="Montar o seu funil" id="l-aula-5">
+<h1 data-i="curso.119">Montar o seu funil</h1>
+<p class="sub" data-i="curso.120">O funil é a fila de vendas: cada cliente fica numa etapa, do primeiro contato até o fechamento. As etapas são suas.</p>
+<h2 data-i="curso.121">Etapas de exemplo</h2>
+<p data-i="curso.122">Você pode usar estas ou criar as suas:</p>
+<ul class="plain">
+<li data-i="curso.123">Novo</li>
+<li data-i="curso.124">Conversando</li>
+<li data-i="curso.125">Visita agendada</li>
+<li data-i="curso.126">Proposta</li>
+<li data-i="curso.127">Fechado</li>
+</ul>
+<h2 data-i="curso.128">Como personalizar</h2>
+<ul class="plain">
+<li data-i="curso.129"><b>Renomear:</b> troque o nome da etapa para o que faz sentido para você</li>
+<li data-i="curso.130"><b>Mudar a cor:</b> deixe as etapas importantes mais chamativas</li>
+<li data-i="curso.131"><b>Mudar a ordem:</b> coloque na ordem em que a venda acontece</li>
+</ul>
+<div class="note tip" data-i="curso.132"><b>Menos é mais</b>Comece com poucas etapas. Cinco ou seis são suficientes para a maioria dos corretores. Dá para mudar depois sem perder nada.</div>
+<div class="note warn" data-i="curso.133"><b>Atenção</b>Quem só está no plano grátis consegue <b>ler</b> as etapas. Para editar o funil é preciso o plano Pago ou o teste de 7 dias.</div>
 </article>
-
 <!-- AULA 6 -->
-<article class="lesson" id="l-aula-6" data-title="Ensinar a Mi.IA a falar do seu jeito">
-  <h1>Ensinar a Mi.IA a falar do seu jeito</h1>
-  <p class="sub">Na tela <b>Minha Mi.IA</b> você responde 8 perguntas. Com elas, a Mi.IA aprende quem você é, o que vende e como conversar.</p>
-
-  <h2>As 8 perguntas</h2>
-  <table class="table">
-    <tr><th>Pergunta</th><th>Exemplo de resposta</th></tr>
-    <tr><td><b>1. Apresentação</b><br>Como ela deve se apresentar</td><td>“Sou a Mi.IA, assistente do corretor João, da Imobiliária Horizonte.”</td></tr>
-    <tr><td><b>2. Região</b></td><td>“Zona sul de São Paulo e Grande São Paulo.”</td></tr>
-    <tr><td><b>3. Tipo de imóvel</b></td><td>“Apartamentos novos na planta e prontos.”</td></tr>
-    <tr><td><b>4. Empreendimentos</b></td><td>Nome de cada um e o que ela pode ou não informar.</td></tr>
-    <tr><td><b>5. Tom</b></td><td>“Simpática e direta. Frases curtas. Pode usar um emoji de vez em quando.”</td></tr>
-    <tr><td><b>6. Qualificação</b><br>O que perguntar ao cliente</td><td>“Renda da família, se tem FGTS, se tem entrada e a região de interesse.”</td></tr>
-    <tr><td><b>7. Passagem para você</b></td><td>“Quando o cliente pedir visita, valores ou falar comigo.”</td></tr>
-    <tr><td><b>8. Limites</b></td><td>“Nunca prometer aprovação de financiamento, desconto ou prazo de entrega.”</td></tr>
-  </table>
-
-  <h2>Como responder bem</h2>
-  <ul class="plain">
-    <li><b>Seja específico.</b> “Simpática e curta” funciona melhor do que “profissional”.</li>
-    <li><b>Escreva só o que é verdade.</b> A Mi.IA usa o que você escreve. Se você colocar uma informação errada, ela vai repetir.</li>
-    <li><b>Use os limites.</b> Tudo o que ela não pode prometer deve estar escrito aqui.</li>
-    <li><b>Teste e ajuste.</b> Mande uma mensagem para o seu número, veja como ela responde e corrija a resposta que não ficou boa.</li>
-  </ul>
-
-  <div class="ex"><small>Exemplo de tom formal</small>“Muito formal e educada. Trate sempre por senhor ou senhora. Sem emojis. Frases curtas. Termine toda mensagem com: Fico à disposição.”</div>
-  <div class="note tip"><b>Dica de ouro</b>Quanto mais claro você for nos limites, mais seguro você fica. Quem decide o valor e as condições é você.</div>
+<article class="lesson" data-title="Ensinar a Mi.IA a falar do seu jeito" id="l-aula-6">
+<h1 data-i="curso.134">Ensinar a Mi.IA a falar do seu jeito</h1>
+<p class="sub" data-i="curso.135">Na tela <b>Minha Mi.IA</b> você responde 8 perguntas. Com elas, a Mi.IA aprende quem você é, o que vende e como conversar.</p>
+<h2 data-i="curso.136">As 8 perguntas</h2>
+<table class="table">
+<tr><th data-i="curso.137">Pergunta</th><th data-i="curso.138">Exemplo de resposta</th></tr>
+<tr><td data-i="curso.139"><b>1. Apresentação</b><br/>Como ela deve se apresentar</td><td data-i="curso.140">“Sou a Mi.IA, assistente do corretor João, da Imobiliária Horizonte.”</td></tr>
+<tr><td><b data-i="curso.141">2. Região</b></td><td data-i="curso.142">“Zona sul de São Paulo e Grande São Paulo.”</td></tr>
+<tr><td><b data-i="curso.143">3. Tipo de imóvel</b></td><td data-i="curso.144">“Apartamentos novos na planta e prontos.”</td></tr>
+<tr><td><b data-i="curso.145">4. Empreendimentos</b></td><td data-i="curso.146">Nome de cada um e o que ela pode ou não informar.</td></tr>
+<tr><td><b data-i="curso.147">5. Tom</b></td><td data-i="curso.148">“Simpática e direta. Frases curtas. Pode usar um emoji de vez em quando.”</td></tr>
+<tr><td data-i="curso.149"><b>6. Qualificação</b><br/>O que perguntar ao cliente</td><td data-i="curso.150">“Renda da família, se tem FGTS, se tem entrada e a região de interesse.”</td></tr>
+<tr><td><b data-i="curso.151">7. Passagem para você</b></td><td data-i="curso.152">“Quando o cliente pedir visita, valores ou falar comigo.”</td></tr>
+<tr><td><b data-i="curso.153">8. Limites</b></td><td data-i="curso.154">“Nunca prometer aprovação de financiamento, desconto ou prazo de entrega.”</td></tr>
+</table>
+<h2 data-i="curso.155">Como responder bem</h2>
+<ul class="plain">
+<li data-i="curso.156"><b>Seja específico.</b> “Simpática e curta” funciona melhor do que “profissional”.</li>
+<li data-i="curso.157"><b>Escreva só o que é verdade.</b> A Mi.IA usa o que você escreve. Se você colocar uma informação errada, ela vai repetir.</li>
+<li data-i="curso.158"><b>Use os limites.</b> Tudo o que ela não pode prometer deve estar escrito aqui.</li>
+<li data-i="curso.159"><b>Teste e ajuste.</b> Mande uma mensagem para o seu número, veja como ela responde e corrija a resposta que não ficou boa.</li>
+</ul>
+<div class="ex" data-i="curso.160"><small>Exemplo de tom formal</small>“Muito formal e educada. Trate sempre por senhor ou senhora. Sem emojis. Frases curtas. Termine toda mensagem com: Fico à disposição.”</div>
+<div class="note tip" data-i="curso.161"><b>Dica de ouro</b>Quanto mais claro você for nos limites, mais seguro você fica. Quem decide o valor e as condições é você.</div>
 </article>
-
 <!-- AULA 7 -->
-<article class="lesson" id="l-aula-7" data-title="Planilha de contatos">
-  <h1>Planilha de contatos</h1>
-  <p class="sub">Aqui você vê todos os seus contatos juntos, filtra, importa a sua lista e exporta quando quiser.</p>
-
-  <h2>O que você vê</h2>
-  <ul class="plain">
-    <li>Todos os contatos em uma tabela</li>
-    <li>Filtros por empreendimento, etapa e dono</li>
-    <li>Agrupamento por empreendimento</li>
-    <li>Botões <b>Importar planilha</b> e <b>Disparo</b></li>
-  </ul>
-  <div class="note tip"><b>Coluna cortada?</b>Se algum nome aparece cortado, arraste a borda da coluna para alargar.</div>
-
-  <h2>Importar a sua lista</h2>
-  <ol class="steps">
-    <li><b>Prepare o arquivo</b><span>Uma planilha com três colunas: <code>nome</code>, <code>telefone</code> e <code>empreendimento</code>. O telefone deve ter o DDD.</span></li>
-    <li><b>Salve como CSV</b><span>No Excel ou no Google Planilhas, escolha <b>Salvar como</b> e depois <b>CSV</b>.</span></li>
-    <li><b>Clique em Importar planilha</b><span>Escolha o arquivo e aguarde.</span></li>
-    <li><b>Leia o resumo</b><span>A tela mostra quantos contatos eram novos, quantos já existiam e quantos eram inválidos.</span></li>
-  </ol>
-  <div class="ex"><small>Exemplo de arquivo</small>nome;telefone;empreendimento<br>Maria Silva;(11) 98888-7777;Residencial Aurora</div>
-  <div class="note tip"><b>Teste primeiro</b>Na primeira vez, importe uma planilha pequena, só com 1 ou 2 contatos. Assim você vê o resultado antes de importar a lista inteira.</div>
-
-  <h2>Contatos inválidos</h2>
-  <p>São os que não têm número de telefone válido, por exemplo, sem DDD ou com letras. Corrija na planilha e importe de novo. Quem já existe não é duplicado.</p>
-
-  <h2>Exportar</h2>
-  <p>Você pode baixar os seus contatos quando quiser. Seus dados são seus.</p>
+<article class="lesson" data-title="Planilha de contatos" id="l-aula-7">
+<h1 data-i="curso.162">Planilha de contatos</h1>
+<p class="sub" data-i="curso.163">Aqui você vê todos os seus contatos juntos, filtra, importa a sua lista e exporta quando quiser.</p>
+<h2 data-i="curso.164">O que você vê</h2>
+<ul class="plain">
+<li data-i="curso.165">Todos os contatos em uma tabela</li>
+<li data-i="curso.166">Filtros por empreendimento, etapa e dono</li>
+<li data-i="curso.167">Agrupamento por empreendimento</li>
+<li data-i="curso.168">Botões <b>Importar planilha</b> e <b>Disparo</b></li>
+</ul>
+<div class="note tip" data-i="curso.169"><b>Coluna cortada?</b>Se algum nome aparece cortado, arraste a borda da coluna para alargar.</div>
+<h2 data-i="curso.170">Importar a sua lista</h2>
+<ol class="steps">
+<li><b data-i="curso.171">Prepare o arquivo</b><span data-i="curso.172">Uma planilha com três colunas: <code>nome</code>, <code>telefone</code> e <code>empreendimento</code>. O telefone deve ter o DDD.</span></li>
+<li><b data-i="curso.173">Salve como CSV</b><span data-i="curso.174">No Excel ou no Google Planilhas, escolha <b>Salvar como</b> e depois <b>CSV</b>.</span></li>
+<li><b data-i="curso.175">Clique em Importar planilha</b><span data-i="curso.176">Escolha o arquivo e aguarde.</span></li>
+<li><b data-i="curso.177">Leia o resumo</b><span data-i="curso.178">A tela mostra quantos contatos eram novos, quantos já existiam e quantos eram inválidos.</span></li>
+</ol>
+<div class="ex" data-i="curso.179"><small>Exemplo de arquivo</small>nome;telefone;empreendimento<br/>Maria Silva;(11) 98888-7777;Residencial Aurora</div>
+<div class="note tip" data-i="curso.180"><b>Teste primeiro</b>Na primeira vez, importe uma planilha pequena, só com 1 ou 2 contatos. Assim você vê o resultado antes de importar a lista inteira.</div>
+<h2 data-i="curso.181">Contatos inválidos</h2>
+<p data-i="curso.182">São os que não têm número de telefone válido, por exemplo, sem DDD ou com letras. Corrija na planilha e importe de novo. Quem já existe não é duplicado.</p>
+<h2 data-i="curso.183">Exportar</h2>
+<p data-i="curso.184">Você pode baixar os seus contatos quando quiser. Seus dados são seus.</p>
 </article>
-
 <!-- AULA 8 -->
-<article class="lesson" id="l-aula-8" data-title="Fazer a sua primeira campanha">
-  <h1>Fazer a sua primeira campanha</h1>
-  <p class="sub">Campanha é uma mensagem enviada para vários contatos de uma vez. Na extensão ela tem etapas de segurança, para nada sair por engano.</p>
-
-  <div class="note stop"><b>Leia antes de começar</b>Disparo em massa pode bloquear o seu número no WhatsApp. Quanto mais mensagens por dia, maior o risco. Por isso a extensão envia devagar e só dentro do horário.</div>
-
-  <h2>Passo a passo</h2>
-  <h3>Parte 1: criar o anúncio</h3>
-  <ol class="steps">
-    <li><b>Abra a aba Anúncios</b><span>O anúncio é o texto da campanha.</span></li>
-    <li><b>Escolha o empreendimento</b><span>Escolha o empreendimento certo. A opção <b>Geral</b> vale para todos os contatos que não têm anúncio próprio, então confira antes de salvar.</span></li>
-    <li><b>Escreva a Mensagem 1</b><span>A primeira mensagem, curta e simpática.</span></li>
-    <li><b>Escreva a Mensagem 2</b><span>A segunda, enviada em seguida, com uma pergunta fácil de responder.</span></li>
-    <li><b>Clique em Salvar anúncio</b><span>O empreendimento passa a aparecer com um ✓.</span></li>
-  </ol>
-
-  <div class="ex"><small>Exemplo de Mensagem 1</small>Oi {nome}, tudo bem? Aqui é a Mi.IA, da Imobiliária Horizonte. Você pediu informações sobre o {empreendimento}. Ainda tem interesse?</div>
-  <div class="ex"><small>Exemplo de Mensagem 2</small>Posso te passar valores e condições?</div>
-  <div class="note tip"><b>Palavras mágicas</b>Escreva <code>{nome}</code> e <code>{empreendimento}</code> e a extensão troca pelos dados de cada contato.</div>
-
-  <h3>Parte 2: escolher quem recebe</h3>
-  <ol class="steps">
-    <li><b>Abra a Planilha</b><span>Todos os contatos vêm marcados.</span></li>
-    <li><b>Clique em Limpar seleção</b><span>Marque somente os contatos que devem receber.</span></li>
-  </ol>
-
-  <h3>Parte 3: criar e ativar</h3>
-  <ol class="steps">
-    <li><b>Abra o Disparo</b><span>Confira os grupos. Quem ainda está “sem anúncio” não recebe nada.</span></li>
-    <li><b>Defina a quantidade por dia</b><span>O padrão é 20. Comece pequeno.</span></li>
-    <li><b>Clique em Criar campanhas</b><span>Isso cria apenas <b>rascunhos</b>. Nada é enviado ainda.</span></li>
-    <li><b>Revise</b><span>Veja a lista de quem vai receber.</span></li>
-    <li><b>Clique em Ativar</b><span>Só agora os envios começam. A extensão nunca envia sozinha.</span></li>
-  </ol>
-
-  <h2>Regras que protegem o seu número</h2>
-  <ul class="plain">
-    <li>Os envios saem <b>devagar</b>, um por minuto por número</li>
-    <li>De <b>segunda a sábado</b>, das 9h às 19h</li>
-    <li>Quem pediu <b>SAIR</b> nunca recebe</li>
-    <li>Quem está em atendimento com você ou com a Mi.IA não recebe</li>
-    <li>Quem falou com a Mi.IA há pouco tempo fica de fora</li>
-  </ul>
-
-  <h2>Boas práticas</h2>
-  <ul class="plain">
-    <li><b>Comece com 10 a 20 contatos por dia</b> e aumente aos poucos</li>
-    <li><b>Fale só com quem conhece você</b> ou pediu informação</li>
-    <li><b>Use mensagens diferentes</b> e curtas, nunca um textão</li>
-    <li><b>Responda rápido</b> a quem responder. É isso que mantém o número saudável</li>
-  </ul>
-  <div class="note warn"><b>Alertas de quantidade</b>Acima de 40 por dia aparece um alerta, e a extensão pede confirmação antes de criar. Acima de 100 aparece um alerta maior. O envio por sua conta e risco.</div>
+<article class="lesson" data-title="Fazer a sua primeira campanha" id="l-aula-8">
+<h1 data-i="curso.185">Fazer a sua primeira campanha</h1>
+<p class="sub" data-i="curso.186">Campanha é uma mensagem enviada para vários contatos de uma vez. Na extensão ela tem etapas de segurança, para nada sair por engano.</p>
+<div class="note stop" data-i="curso.187"><b>Leia antes de começar</b>Disparo em massa pode bloquear o seu número no WhatsApp. Quanto mais mensagens por dia, maior o risco. Por isso a extensão envia devagar e só dentro do horário.</div>
+<h2 data-i="curso.188">Passo a passo</h2>
+<h3 data-i="curso.189">Parte 1: criar o anúncio</h3>
+<ol class="steps">
+<li><b data-i="curso.190">Abra a aba Anúncios</b><span data-i="curso.191">O anúncio é o texto da campanha.</span></li>
+<li><b data-i="curso.192">Escolha o empreendimento</b><span data-i="curso.193">Escolha o empreendimento certo. A opção <b>Geral</b> vale para todos os contatos que não têm anúncio próprio, então confira antes de salvar.</span></li>
+<li><b data-i="curso.194">Escreva a Mensagem 1</b><span data-i="curso.195">A primeira mensagem, curta e simpática.</span></li>
+<li><b data-i="curso.196">Escreva a Mensagem 2</b><span data-i="curso.197">A segunda, enviada em seguida, com uma pergunta fácil de responder.</span></li>
+<li><b data-i="curso.198">Clique em Salvar anúncio</b><span data-i="curso.199">O empreendimento passa a aparecer com um ✓.</span></li>
+</ol>
+<div class="ex" data-i="curso.200"><small>Exemplo de Mensagem 1</small>Oi {nome}, tudo bem? Aqui é a Mi.IA, da Imobiliária Horizonte. Você pediu informações sobre o {empreendimento}. Ainda tem interesse?</div>
+<div class="ex" data-i="curso.201"><small>Exemplo de Mensagem 2</small>Posso te passar valores e condições?</div>
+<div class="note tip" data-i="curso.202"><b>Palavras mágicas</b>Escreva <code>{nome}</code> e <code>{empreendimento}</code> e a extensão troca pelos dados de cada contato.</div>
+<h3 data-i="curso.203">Parte 2: escolher quem recebe</h3>
+<ol class="steps">
+<li><b data-i="curso.204">Abra a Planilha</b><span data-i="curso.205">Todos os contatos vêm marcados.</span></li>
+<li><b data-i="curso.206">Clique em Limpar seleção</b><span data-i="curso.207">Marque somente os contatos que devem receber.</span></li>
+</ol>
+<h3 data-i="curso.208">Parte 3: criar e ativar</h3>
+<ol class="steps">
+<li><b data-i="curso.209">Abra o Disparo</b><span data-i="curso.210">Confira os grupos. Quem ainda está “sem anúncio” não recebe nada.</span></li>
+<li><b data-i="curso.211">Defina a quantidade por dia</b><span data-i="curso.212">O padrão é 20. Comece pequeno.</span></li>
+<li><b data-i="curso.213">Clique em Criar campanhas</b><span data-i="curso.214">Isso cria apenas <b>rascunhos</b>. Nada é enviado ainda.</span></li>
+<li><b data-i="curso.215">Revise</b><span data-i="curso.216">Veja a lista de quem vai receber.</span></li>
+<li><b data-i="curso.217">Clique em Ativar</b><span data-i="curso.218">Só agora os envios começam. A extensão nunca envia sozinha.</span></li>
+</ol>
+<h2 data-i="curso.219">Regras que protegem o seu número</h2>
+<ul class="plain">
+<li data-i="curso.220">Os envios saem <b>devagar</b>, um por minuto por número</li>
+<li data-i="curso.221">De <b>segunda a sábado</b>, das 9h às 19h</li>
+<li data-i="curso.222">Quem pediu <b>SAIR</b> nunca recebe</li>
+<li data-i="curso.223">Quem está em atendimento com você ou com a Mi.IA não recebe</li>
+<li data-i="curso.224">Quem falou com a Mi.IA há pouco tempo fica de fora</li>
+</ul>
+<h2 data-i="curso.225">Boas práticas</h2>
+<ul class="plain">
+<li data-i="curso.226"><b>Comece com 10 a 20 contatos por dia</b> e aumente aos poucos</li>
+<li data-i="curso.227"><b>Fale só com quem conhece você</b> ou pediu informação</li>
+<li data-i="curso.228"><b>Use mensagens diferentes</b> e curtas, nunca um textão</li>
+<li data-i="curso.229"><b>Responda rápido</b> a quem responder. É isso que mantém o número saudável</li>
+</ul>
+<div class="note warn" data-i="curso.230"><b>Alertas de quantidade</b>Acima de 40 por dia aparece um alerta, e a extensão pede confirmação antes de criar. Acima de 100 aparece um alerta maior. O envio por sua conta e risco.</div>
 </article>
-
 <!-- AULA 9 -->
-<article class="lesson" id="l-aula-9" data-title="Equipe e convites">
-  <h1>Equipe e convites</h1>
-  <p class="sub">Para quem tem mais de um corretor: como chamar sua equipe e quem pode ver o quê.</p>
-
-  <h2>Como chamar um corretor</h2>
-  <ol class="steps">
-    <li><b>Abra a aba Equipe</b><span>Ela aparece para o responsável pela empresa.</span></li>
-    <li><b>Gere um convite</b><span>A extensão cria um código de 8 letras e números.</span></li>
-    <li><b>Envie o código</b><span>O corretor instala a extensão, escolhe criar conta com convite e digita o código.</span></li>
-  </ol>
-  <div class="note tip"><b>Um código, uma pessoa</b>Depois de usado, o código não funciona de novo.</div>
-
-  <h2>Quem pode ver o quê</h2>
-  <table class="table">
-    <tr><th>Papel</th><th>O que enxerga</th></tr>
-    <tr><td><b>Corretor</b></td><td>Os próprios contatos e conversas</td></tr>
-    <tr><td><b>Administrador</b></td><td>Todos os contatos da empresa e pode gerar convites</td></tr>
-  </table>
-  <p>Quem entra por convite <b>nunca nasce administrador</b>. O responsável decide quem vira administrador.</p>
-  <div class="note tip"><b>Seus dados são separados</b>Cada empresa vê só os próprios contatos, anúncios e respostas.</div>
+<article class="lesson" data-title="Equipe e convites" id="l-aula-9">
+<h1 data-i="curso.231">Equipe e convites</h1>
+<p class="sub" data-i="curso.232">Para quem tem mais de um corretor: como chamar sua equipe e quem pode ver o quê.</p>
+<h2 data-i="curso.233">Como chamar um corretor</h2>
+<ol class="steps">
+<li><b data-i="curso.234">Abra a aba Equipe</b><span data-i="curso.235">Ela aparece para o responsável pela empresa.</span></li>
+<li><b data-i="curso.236">Gere um convite</b><span data-i="curso.237">A extensão cria um código de 8 letras e números.</span></li>
+<li><b data-i="curso.238">Envie o código</b><span data-i="curso.239">O corretor instala a extensão, escolhe criar conta com convite e digita o código.</span></li>
+</ol>
+<div class="note tip" data-i="curso.240"><b>Um código, uma pessoa</b>Depois de usado, o código não funciona de novo.</div>
+<h2 data-i="curso.241">Quem pode ver o quê</h2>
+<table class="table">
+<tr><th data-i="curso.242">Papel</th><th data-i="curso.243">O que enxerga</th></tr>
+<tr><td><b data-i="curso.244">Corretor</b></td><td data-i="curso.245">Os próprios contatos e conversas</td></tr>
+<tr><td><b data-i="curso.246">Administrador</b></td><td data-i="curso.247">Todos os contatos da empresa e pode gerar convites</td></tr>
+</table>
+<p data-i="curso.248">Quem entra por convite <b>nunca nasce administrador</b>. O responsável decide quem vira administrador.</p>
+<div class="note tip" data-i="curso.249"><b>Seus dados são separados</b>Cada empresa vê só os próprios contatos, anúncios e respostas.</div>
 </article>
-
 <!-- AULA 10 -->
-<article class="lesson" id="l-aula-10" data-title="Planos e teste grátis">
-  <h1>Planos e teste grátis</h1>
-  <p class="sub">Comece com tudo liberado por 7 dias. Depois escolha o que faz sentido para você.</p>
-
-  <table class="table">
-    <tr><th>Plano</th><th>Preço</th><th>O que tem</th></tr>
-    <tr><td><b>Teste</b></td><td>7 dias grátis</td><td>Tudo liberado, inclusive a Mi.IA</td></tr>
-    <tr><td><b>Grátis</b></td><td>R$ 0</td><td>Ficha e anotações, respostas rápidas, ler as etapas, conectar o WhatsApp, configurar a Mi.IA e chatbot simples</td></tr>
-    <tr><td><b>Pago</b></td><td>R$ 199,90 por ano</td><td>Tudo do grátis, mais funil editável, planilha, lembretes e agendamento, disparo e equipe</td></tr>
-    <tr><td><b>Pago com a Mi.IA</b></td><td>R$ 49,90 por mês</td><td>Tudo do Pago, mais a Mi.IA atendendo no seu WhatsApp. É pré-pago: pagou, usou.</td></tr>
-  </table>
-  <p>Terminou o teste? A conta volta sozinha para o plano grátis, sem cobrança surpresa. Seus contatos continuam lá.</p>
+<article class="lesson" data-title="Planos e teste grátis" id="l-aula-10">
+<h1 data-i="curso.250">Planos e teste grátis</h1>
+<p class="sub" data-i="curso.251">Comece com tudo liberado por 7 dias. Depois escolha o que faz sentido para você.</p>
+<table class="table">
+<tr><th data-i="curso.252">Plano</th><th data-i="curso.253">Preço</th><th data-i="curso.254">O que tem</th></tr>
+<tr><td><b data-i="curso.255">Teste</b></td><td data-i="curso.256">7 dias grátis</td><td data-i="curso.257">Tudo liberado, inclusive a Mi.IA</td></tr>
+<tr><td><b data-i="curso.258">Grátis</b></td><td data-i="curso.259">R$ 0</td><td data-i="curso.260">Ficha e anotações, respostas rápidas, ler as etapas, conectar o WhatsApp, configurar a Mi.IA e chatbot simples</td></tr>
+<tr><td><b data-i="curso.261">Pago</b></td><td data-i="curso.262">R$ 199,90 por ano</td><td data-i="curso.263">Tudo do grátis, mais funil editável, planilha, lembretes e agendamento, disparo e equipe</td></tr>
+<tr><td><b data-i="curso.264">Pago com a Mi.IA</b></td><td data-i="curso.265">R$ 49,90 por mês</td><td data-i="curso.266">Tudo do Pago, mais a Mi.IA atendendo no seu WhatsApp. É pré-pago: pagou, usou.</td></tr>
+</table>
+<p data-i="curso.267">Terminou o teste? A conta volta sozinha para o plano grátis, sem cobrança surpresa. Seus contatos continuam lá.</p>
 </article>
-
 <!-- AULA 11 -->
-<article class="lesson" id="l-aula-11" data-title="Problemas comuns e checklist final">
-  <h1>Problemas comuns e checklist final</h1>
-  <p class="sub">Para consultar sempre que precisar. Se não achar a sua dúvida, fale com a Mi.IA no chat do site.</p>
-
-  <h2>Problemas comuns</h2>
-  <table class="table">
-    <tr><th>Problema</th><th>O que fazer</th></tr>
-    <tr><td>A barra não aparece no WhatsApp Web</td><td>Atualize a página com F5. Confira se a extensão está ligada em <code>chrome://extensions</code>.</td></tr>
-    <tr><td>O WhatsApp desconectou</td><td>Atualize o WhatsApp Web. Se continuar, gere um QR code novo e leia de novo.</td></tr>
-    <tr><td>A Mi.IA não respondeu um cliente</td><td>Confira se você não clicou em <b>Eu assumo</b> ou em <b>Não é cliente</b> nessa conversa.</td></tr>
-    <tr><td>A campanha “não criou nada”</td><td>O empreendimento está sem anúncio. Salve um anúncio na aba Anúncios e tente de novo.</td></tr>
-    <tr><td>A campanha criada não está enviando</td><td>Ela está em rascunho. Clique em Ativar. Confira também o horário: só de segunda a sábado, das 9h às 19h.</td></tr>
-    <tr><td>Um contato não aparece no disparo</td><td>Ele pode ter pedido SAIR, estar em atendimento ou ter falado com a Mi.IA há pouco tempo.</td></tr>
-    <tr><td>Telefones inválidos na importação</td><td>Falta o DDD ou há letras. Corrija na planilha e importe de novo.</td></tr>
-    <tr><td>Não consigo criar a conta</td><td>Confira o código do convite (8 letras e números) e confirme o e-mail pelo link recebido.</td></tr>
-  </table>
-
-  <h2>Checklist final</h2>
-  <ul class="chk">
-    <li>Extensão instalada e pasta guardada num lugar seguro</li>
-    <li>Conta criada e e-mail confirmado</li>
-    <li>WhatsApp conectado pelo QR code</li>
-    <li>As 8 perguntas da Minha Mi.IA respondidas</li>
-    <li>Teste feito: uma mensagem para o seu número para ver a resposta</li>
-    <li>Etapas do funil ajustadas</li>
-    <li>Contatos importados</li>
-    <li>Primeiro anúncio salvo e primeira campanha pequena criada</li>
-  </ul>
-  <div class="note tip"><b>Parabéns!</b>Você terminou o curso. Agora é praticar com poucos contatos e crescer aos poucos.</div>
+<article class="lesson" data-title="Problemas comuns e checklist final" id="l-aula-11">
+<h1 data-i="curso.268">Problemas comuns e checklist final</h1>
+<p class="sub" data-i="curso.269">Para consultar sempre que precisar. Se não achar a sua dúvida, fale com a Mi.IA no chat do site.</p>
+<h2 data-i="curso.270">Problemas comuns</h2>
+<table class="table">
+<tr><th data-i="curso.271">Problema</th><th data-i="curso.272">O que fazer</th></tr>
+<tr><td data-i="curso.273">A barra não aparece no WhatsApp Web</td><td data-i="curso.274">Atualize a página com F5. Confira se a extensão está ligada em <code>chrome://extensions</code>.</td></tr>
+<tr><td data-i="curso.275">O WhatsApp desconectou</td><td data-i="curso.276">Atualize o WhatsApp Web. Se continuar, gere um QR code novo e leia de novo.</td></tr>
+<tr><td data-i="curso.277">A Mi.IA não respondeu um cliente</td><td data-i="curso.278">Confira se você não clicou em <b>Eu assumo</b> ou em <b>Não é cliente</b> nessa conversa.</td></tr>
+<tr><td data-i="curso.279">A campanha “não criou nada”</td><td data-i="curso.280">O empreendimento está sem anúncio. Salve um anúncio na aba Anúncios e tente de novo.</td></tr>
+<tr><td data-i="curso.281">A campanha criada não está enviando</td><td data-i="curso.282">Ela está em rascunho. Clique em Ativar. Confira também o horário: só de segunda a sábado, das 9h às 19h.</td></tr>
+<tr><td data-i="curso.283">Um contato não aparece no disparo</td><td data-i="curso.284">Ele pode ter pedido SAIR, estar em atendimento ou ter falado com a Mi.IA há pouco tempo.</td></tr>
+<tr><td data-i="curso.285">Telefones inválidos na importação</td><td data-i="curso.286">Falta o DDD ou há letras. Corrija na planilha e importe de novo.</td></tr>
+<tr><td data-i="curso.287">Não consigo criar a conta</td><td data-i="curso.288">Confira o código do convite (8 letras e números) e confirme o e-mail pelo link recebido.</td></tr>
+</table>
+<h2 data-i="curso.289">Checklist final</h2>
+<ul class="chk">
+<li data-i="curso.290">Extensão instalada e pasta guardada num lugar seguro</li>
+<li data-i="curso.291">Conta criada e e-mail confirmado</li>
+<li data-i="curso.292">WhatsApp conectado pelo QR code</li>
+<li data-i="curso.293">As 8 perguntas da Minha Mi.IA respondidas</li>
+<li data-i="curso.294">Teste feito: uma mensagem para o seu número para ver a resposta</li>
+<li data-i="curso.295">Etapas do funil ajustadas</li>
+<li data-i="curso.296">Contatos importados</li>
+<li data-i="curso.297">Primeiro anúncio salvo e primeira campanha pequena criada</li>
+</ul>
+<div class="note tip" data-i="curso.298"><b>Parabéns!</b>Você terminou o curso. Agora é praticar com poucos contatos e crescer aos poucos.</div>
 </article>
-
 <!-- AULA 12 -->
-<article class="lesson" id="l-aula-12" data-title="Perguntas frequentes">
-  <h1>Perguntas frequentes</h1>
-  <p class="sub">As dúvidas que costumam aparecer no começo e com o passar do tempo. Clique na pergunta para ver a resposta.</p>
-
-  <h2 class="faq-g">Instalação e conta</h2>
-  <details class="faq-q"><summary>Funciona no celular?</summary><p>Não. A extensão funciona no Google Chrome do computador, junto com o WhatsApp Web. O celular só é usado para ler o QR code.</p></details>
-  <details class="faq-q"><summary>Funciona em outro navegador, como Edge ou Firefox?</summary><p>A extensão foi feita e testada para o Google Chrome. Em outros navegadores não garantimos o funcionamento.</p></details>
-  <details class="faq-q"><summary>Funciona no Mac?</summary><p>Funciona no Chrome do Mac com os mesmos passos. A única diferença é para extrair o arquivo: dê dois cliques no .zip.</p></details>
-  <details class="faq-q"><summary>O Chrome mostra um aviso sobre extensões do modo desenvolvedor. É normal?</summary><p>Sim. Esse aviso aparece porque a instalação, por enquanto, é manual. Não clique em desativar. Quando a extensão estiver na loja do Chrome, o aviso deixa de aparecer.</p></details>
-  <details class="faq-q"><summary>Preciso deixar o computador ligado para a Mi.IA responder?</summary><p>Não. A Mi.IA responde pelo servidor, então não depende do seu computador nem do Chrome aberto. O celular precisa se conectar à internet de vez em quando: o WhatsApp desconecta aparelhos ligados quando o celular fica muito tempo sem conexão.</p></details>
-  <details class="faq-q"><summary>Posso continuar usando o WhatsApp no celular normalmente?</summary><p>Sim. Você continua conversando pelo celular e pelo WhatsApp Web. As conversas da Mi.IA aparecem no seu número.</p></details>
-  <details class="faq-q"><summary>Troquei de computador. E agora?</summary><p>Instale a extensão de novo no computador novo e entre com o mesmo e-mail e a mesma senha. Seus contatos e configurações ficam na sua conta, não no computador.</p></details>
-  <details class="faq-q"><summary>Como atualizo a extensão para uma versão nova?</summary><p>Na página <code>chrome://extensions</code>, clique em <b>Remover</b> na versão antiga. Depois clique em <b>Carregar sem compactação</b> e escolha a pasta <b>MiZap</b> da versão nova.</p></details>
-  <details class="faq-q"><summary>Como desinstalo?</summary><p>Em <code>chrome://extensions</code>, clique em <b>Remover</b>. Para desligar o WhatsApp, abra o WhatsApp no celular, vá em <b>Aparelhos conectados</b> e saia do aparelho.</p></details>
-  <details class="faq-q"><summary>Esqueci minha senha. O que faço?</summary><p>Fale com o suporte, pelo chat do site ou pelo WhatsApp, e a gente te ajuda a entrar de novo.</p></details>
-
-  <h2 class="faq-g">A Mi.IA no dia a dia</h2>
-  <details class="faq-q"><summary>A Mi.IA responde a qualquer hora?</summary><p>Sim. Ela responde as mensagens que chegam de dia ou de noite. A retomada de quem sumiu é que só acontece entre 9h e 20h.</p></details>
-  <details class="faq-q"><summary>Ela entende áudio?</summary><p>Sim. Ela transcreve o áudio do cliente e responde. Também pode responder falando.</p></details>
-  <details class="faq-q"><summary>Ela fala valores e condições?</summary><p>Só fala o que você cadastrou e permitiu. Se você não quer que ela informe valores, escreva isso na pergunta <b>Limites</b> da tela Minha Mi.IA. Por exemplo: “Não informar preço. Passar para o corretor.”</p></details>
-  <details class="faq-q"><summary>Ela pode errar ou inventar?</summary><p>Ela foi pensada para não inventar, e só usa o que você cadastrou. Mesmo assim, nenhuma IA é perfeita. Leia as primeiras conversas, ajuste a Minha Mi.IA quando algo não ficar bom e use o botão <b>Eu assumo</b> quando quiser falar você mesmo.</p></details>
-  <details class="faq-q"><summary>Como mudo a forma como ela fala?</summary><p>Abra a tela <b>Minha Mi.IA</b> e altere as respostas, principalmente <b>Tom</b> e <b>Limites</b>. A mudança vale para as próximas conversas. Depois mande uma mensagem de teste para o seu número.</p></details>
-  <details class="faq-q"><summary>Ela manda fotos e plantas?</summary><p>Ela envia as informações e fotos do material que você cadastrou. A leitura automática de um site de referência ainda não está disponível.</p></details>
-  <details class="faq-q"><summary>Ela fala com meus amigos e minha família?</summary><p>Se o contato não é cliente, abra a conversa e clique em <b>Não é cliente</b>. A Mi.IA para de falar com ele. Se mudar de ideia, clique em <b>É cliente, sim</b>.</p></details>
-  <details class="faq-q"><summary>O cliente pediu para parar de receber mensagens. O que acontece?</summary><p>Quem pede para sair deixa de receber mensagens. Nas campanhas, quem pediu <b>SAIR</b> nunca recebe.</p></details>
-  <details class="faq-q"><summary>Como assumo uma conversa?</summary><p>Clique em <b>Eu assumo</b> na barra lateral. A Mi.IA pausa só naquela conversa. Quando terminar, devolva para ela.</p></details>
-  <details class="faq-q"><summary>Posso desligar a Mi.IA de vez?</summary><p>Pela extensão você pausa conversa por conversa. Para desligar de vez, fale com o suporte.</p></details>
-  <details class="faq-q"><summary>O cliente vai saber que é uma IA?</summary><p>Recomendamos que ela se apresente como assistente do corretor, na pergunta <b>Apresentação</b> da Minha Mi.IA. Isso deixa claro para o cliente quem está atendendo e gera confiança.</p></details>
-
-  <h2 class="faq-g">Contatos e campanhas</h2>
-  <details class="faq-q"><summary>Quantos contatos posso importar?</summary><p>Comece com poucos para testar e depois importe a lista completa. Se a importação mostrar contatos inválidos, corrija a planilha e importe de novo.</p></details>
-  <details class="faq-q"><summary>Importei duas vezes. Os contatos ficam duplicados?</summary><p>Não. Quem já existe aparece no resumo como “já estava”.</p></details>
-  <details class="faq-q"><summary>Posso mandar campanha para uma lista comprada?</summary><p>Não recomendamos. Mande só para quem tem relação com você ou pediu informação. Isso protege o seu número de bloqueios e respeita a lei de proteção de dados (LGPD).</p></details>
-  <details class="faq-q"><summary>Criei a campanha e nada foi enviado. Por quê?</summary><p>O botão <b>Criar campanhas</b> cria só rascunhos. Os envios começam apenas quando você clica em <b>Ativar</b>. Confira também o horário: de segunda a sábado, das 9h às 19h.</p></details>
-  <details class="faq-q"><summary>Posso enviar no domingo ou à noite?</summary><p>Não. Os envios saem de segunda a sábado, das 9h às 19h. Isso protege o seu número.</p></details>
-  <details class="faq-q"><summary>Por que a campanha é tão devagar?</summary><p>Os envios saem um por minuto por número. É de propósito: mensagens rápidas demais são o que mais bloqueia números no WhatsApp.</p></details>
-  <details class="faq-q"><summary>Quantas mensagens posso mandar por dia?</summary><p>O padrão é 20 por campanha, e você pode mudar. Acima de 40 aparece um alerta e a extensão pede confirmação. Comece pequeno e aumente aos poucos.</p></details>
-  <details class="faq-q"><summary>Salvei o anúncio para o empreendimento errado. E agora?</summary><p>Antes de ativar a campanha, confira a lista. Se ainda é rascunho, não ative. Corrija o anúncio na aba Anúncios e crie a campanha de novo.</p></details>
-  <details class="faq-q"><summary>O que fazer se meu número for bloqueado?</summary><p>Pare de criar campanhas e converse normalmente com quem responde. Se o WhatsApp restringir o número, você pode pedir uma revisão pelo próprio aplicativo. Nós não conseguimos reverter bloqueios do WhatsApp. Por isso, comece pequeno e use um número de trabalho.</p></details>
-
-  <h2 class="faq-g">Planos e pagamento</h2>
-  <details class="faq-q"><summary>O que acontece quando o teste de 7 dias termina?</summary><p>A conta volta sozinha para o plano grátis. Seus contatos continuam lá. As funções do plano pago ficam bloqueadas até você contratar.</p></details>
-  <details class="faq-q"><summary>Qual a diferença entre o plano Pago e o Pago com a Mi.IA?</summary><p>O <b>Pago</b> (R$ 199,90 por ano) tem todas as ferramentas, sem a IA. O <b>Pago com a Mi.IA</b> (R$ 49,90 por mês) tem tudo isso e mais a Mi.IA atendendo seus clientes no WhatsApp.</p></details>
-  <details class="faq-q"><summary>Como eu pago?</summary><p>A forma de pagamento é combinada na hora de contratar. Fale com a gente pelo chat do site ou pelo WhatsApp.</p></details>
-  <details class="faq-q"><summary>Como cancelo?</summary><p>Fale com o suporte, pelo chat do site ou pelo WhatsApp, e a gente cuida disso.</p></details>
-  <details class="faq-q"><summary>Preciso de nota fiscal?</summary><p>Fale com o suporte para combinar. Esse assunto é tratado direto com a gente.</p></details>
-
-  <h2 class="faq-g">Privacidade e segurança</h2>
-  <details class="faq-q"><summary>A extensão lê as minhas conversas?</summary><p>A extensão lê apenas o número do contato da conversa aberta. Ela não lê o texto das mensagens e não envia nada sem você pedir.</p></details>
-  <details class="faq-q"><summary>Então como a Mi.IA responde?</summary><p>Para responder, a Mi.IA precisa receber as mensagens que os seus clientes mandam para o seu número. Isso é feito no servidor, e o texto é usado por um serviço de inteligência artificial para montar a resposta. Cada empresa enxerga só os próprios dados.</p></details>
-  <details class="faq-q"><summary>Outra empresa pode ver meus contatos?</summary><p>Não. Os contatos, anúncios e respostas de cada empresa ficam separados.</p></details>
-  <details class="faq-q"><summary>Posso levar meus contatos embora?</summary><p>Sim. Você pode exportar a sua planilha quando quiser.</p></details>
-  <details class="faq-q"><summary>O WhatsApp pode bloquear meu número por usar a extensão?</summary><p>A extensão não é um produto oficial do WhatsApp nem da Meta, e ferramentas desse tipo têm risco. Por isso o envio é lento, só em horário comercial e com opção de SAIR. Use um número de trabalho, comece com poucos contatos e mande só para quem espera ouvir de você.</p></details>
-
-  <h2 class="faq-g">Ajuda e suporte</h2>
-  <details class="faq-q"><summary>Onde tiro uma dúvida que não está aqui?</summary><p>Fale com a Mi.IA no chat da página de vendas. Ela resolve dúvidas técnicas e passo a passo de instalação. Se ela não souber, ela passa para o suporte.</p></details>
-  <details class="faq-q"><summary>Como descrevo um problema para o suporte?</summary><p>Conte o que você estava fazendo, o que apareceu na tela e, se puder, mande uma foto da tela. Quanto mais claro, mais rápido a gente resolve.</p></details>
+<article class="lesson" data-title="Perguntas frequentes" id="l-aula-12">
+<h1 data-i="curso.299">Perguntas frequentes</h1>
+<p class="sub" data-i="curso.300">As dúvidas que costumam aparecer no começo e com o passar do tempo. Clique na pergunta para ver a resposta.</p>
+<h2 class="faq-g" data-i="curso.301">Instalação e conta</h2>
+<details class="faq-q"><summary data-i="curso.302">Funciona no celular?</summary><p data-i="curso.303">Não. A extensão funciona no Google Chrome do computador, junto com o WhatsApp Web. O celular só é usado para ler o QR code.</p></details>
+<details class="faq-q"><summary data-i="curso.304">Funciona em outro navegador, como Edge ou Firefox?</summary><p data-i="curso.305">A extensão foi feita e testada para o Google Chrome. Em outros navegadores não garantimos o funcionamento.</p></details>
+<details class="faq-q"><summary data-i="curso.306">Funciona no Mac?</summary><p data-i="curso.307">Funciona no Chrome do Mac com os mesmos passos. A única diferença é para extrair o arquivo: dê dois cliques no .zip.</p></details>
+<details class="faq-q"><summary data-i="curso.308">O Chrome mostra um aviso sobre extensões do modo desenvolvedor. É normal?</summary><p data-i="curso.309">Sim. Esse aviso aparece porque a instalação, por enquanto, é manual. Não clique em desativar. Quando a extensão estiver na loja do Chrome, o aviso deixa de aparecer.</p></details>
+<details class="faq-q"><summary data-i="curso.310">Preciso deixar o computador ligado para a Mi.IA responder?</summary><p data-i="curso.311">Não. A Mi.IA responde pelo servidor, então não depende do seu computador nem do Chrome aberto. O celular precisa se conectar à internet de vez em quando: o WhatsApp desconecta aparelhos ligados quando o celular fica muito tempo sem conexão.</p></details>
+<details class="faq-q"><summary data-i="curso.312">Posso continuar usando o WhatsApp no celular normalmente?</summary><p data-i="curso.313">Sim. Você continua conversando pelo celular e pelo WhatsApp Web. As conversas da Mi.IA aparecem no seu número.</p></details>
+<details class="faq-q"><summary data-i="curso.314">Troquei de computador. E agora?</summary><p data-i="curso.315">Instale a extensão de novo no computador novo e entre com o mesmo e-mail e a mesma senha. Seus contatos e configurações ficam na sua conta, não no computador.</p></details>
+<details class="faq-q"><summary data-i="curso.316">Como atualizo a extensão para uma versão nova?</summary><p data-i="curso.317">Na página <code>chrome://extensions</code>, clique em <b>Remover</b> na versão antiga. Depois clique em <b>Carregar sem compactação</b> e escolha a pasta <b>MiZap</b> da versão nova.</p></details>
+<details class="faq-q"><summary data-i="curso.318">Como desinstalo?</summary><p data-i="curso.319">Em <code>chrome://extensions</code>, clique em <b>Remover</b>. Para desligar o WhatsApp, abra o WhatsApp no celular, vá em <b>Aparelhos conectados</b> e saia do aparelho.</p></details>
+<details class="faq-q"><summary data-i="curso.320">Esqueci minha senha. O que faço?</summary><p data-i="curso.321">Fale com o suporte, pelo chat do site ou pelo WhatsApp, e a gente te ajuda a entrar de novo.</p></details>
+<h2 class="faq-g" data-i="curso.322">A Mi.IA no dia a dia</h2>
+<details class="faq-q"><summary data-i="curso.323">A Mi.IA responde a qualquer hora?</summary><p data-i="curso.324">Sim. Ela responde as mensagens que chegam de dia ou de noite. A retomada de quem sumiu é que só acontece entre 9h e 20h.</p></details>
+<details class="faq-q"><summary data-i="curso.325">Ela entende áudio?</summary><p data-i="curso.326">Sim. Ela transcreve o áudio do cliente e responde. Também pode responder falando.</p></details>
+<details class="faq-q"><summary data-i="curso.327">Ela fala valores e condições?</summary><p data-i="curso.328">Só fala o que você cadastrou e permitiu. Se você não quer que ela informe valores, escreva isso na pergunta <b>Limites</b> da tela Minha Mi.IA. Por exemplo: “Não informar preço. Passar para o corretor.”</p></details>
+<details class="faq-q"><summary data-i="curso.329">Ela pode errar ou inventar?</summary><p data-i="curso.330">Ela foi pensada para não inventar, e só usa o que você cadastrou. Mesmo assim, nenhuma IA é perfeita. Leia as primeiras conversas, ajuste a Minha Mi.IA quando algo não ficar bom e use o botão <b>Eu assumo</b> quando quiser falar você mesmo.</p></details>
+<details class="faq-q"><summary data-i="curso.331">Como mudo a forma como ela fala?</summary><p data-i="curso.332">Abra a tela <b>Minha Mi.IA</b> e altere as respostas, principalmente <b>Tom</b> e <b>Limites</b>. A mudança vale para as próximas conversas. Depois mande uma mensagem de teste para o seu número.</p></details>
+<details class="faq-q"><summary data-i="curso.333">Ela manda fotos e plantas?</summary><p data-i="curso.334">Ela envia as informações e fotos do material que você cadastrou. A leitura automática de um site de referência ainda não está disponível.</p></details>
+<details class="faq-q"><summary data-i="curso.335">Ela fala com meus amigos e minha família?</summary><p data-i="curso.336">Se o contato não é cliente, abra a conversa e clique em <b>Não é cliente</b>. A Mi.IA para de falar com ele. Se mudar de ideia, clique em <b>É cliente, sim</b>.</p></details>
+<details class="faq-q"><summary data-i="curso.337">O cliente pediu para parar de receber mensagens. O que acontece?</summary><p data-i="curso.338">Quem pede para sair deixa de receber mensagens. Nas campanhas, quem pediu <b>SAIR</b> nunca recebe.</p></details>
+<details class="faq-q"><summary data-i="curso.339">Como assumo uma conversa?</summary><p data-i="curso.340">Clique em <b>Eu assumo</b> na barra lateral. A Mi.IA pausa só naquela conversa. Quando terminar, devolva para ela.</p></details>
+<details class="faq-q"><summary data-i="curso.341">Posso desligar a Mi.IA de vez?</summary><p data-i="curso.342">Pela extensão você pausa conversa por conversa. Para desligar de vez, fale com o suporte.</p></details>
+<details class="faq-q"><summary data-i="curso.343">O cliente vai saber que é uma IA?</summary><p data-i="curso.344">Recomendamos que ela se apresente como assistente do corretor, na pergunta <b>Apresentação</b> da Minha Mi.IA. Isso deixa claro para o cliente quem está atendendo e gera confiança.</p></details>
+<h2 class="faq-g" data-i="curso.345">Contatos e campanhas</h2>
+<details class="faq-q"><summary data-i="curso.346">Quantos contatos posso importar?</summary><p data-i="curso.347">Comece com poucos para testar e depois importe a lista completa. Se a importação mostrar contatos inválidos, corrija a planilha e importe de novo.</p></details>
+<details class="faq-q"><summary data-i="curso.348">Importei duas vezes. Os contatos ficam duplicados?</summary><p data-i="curso.349">Não. Quem já existe aparece no resumo como “já estava”.</p></details>
+<details class="faq-q"><summary data-i="curso.350">Posso mandar campanha para uma lista comprada?</summary><p data-i="curso.351">Não recomendamos. Mande só para quem tem relação com você ou pediu informação. Isso protege o seu número de bloqueios e respeita a lei de proteção de dados (LGPD).</p></details>
+<details class="faq-q"><summary data-i="curso.352">Criei a campanha e nada foi enviado. Por quê?</summary><p data-i="curso.353">O botão <b>Criar campanhas</b> cria só rascunhos. Os envios começam apenas quando você clica em <b>Ativar</b>. Confira também o horário: de segunda a sábado, das 9h às 19h.</p></details>
+<details class="faq-q"><summary data-i="curso.354">Posso enviar no domingo ou à noite?</summary><p data-i="curso.355">Não. Os envios saem de segunda a sábado, das 9h às 19h. Isso protege o seu número.</p></details>
+<details class="faq-q"><summary data-i="curso.356">Por que a campanha é tão devagar?</summary><p data-i="curso.357">Os envios saem um por minuto por número. É de propósito: mensagens rápidas demais são o que mais bloqueia números no WhatsApp.</p></details>
+<details class="faq-q"><summary data-i="curso.358">Quantas mensagens posso mandar por dia?</summary><p data-i="curso.359">O padrão é 20 por campanha, e você pode mudar. Acima de 40 aparece um alerta e a extensão pede confirmação. Comece pequeno e aumente aos poucos.</p></details>
+<details class="faq-q"><summary data-i="curso.360">Salvei o anúncio para o empreendimento errado. E agora?</summary><p data-i="curso.361">Antes de ativar a campanha, confira a lista. Se ainda é rascunho, não ative. Corrija o anúncio na aba Anúncios e crie a campanha de novo.</p></details>
+<details class="faq-q"><summary data-i="curso.362">O que fazer se meu número for bloqueado?</summary><p data-i="curso.363">Pare de criar campanhas e converse normalmente com quem responde. Se o WhatsApp restringir o número, você pode pedir uma revisão pelo próprio aplicativo. Nós não conseguimos reverter bloqueios do WhatsApp. Por isso, comece pequeno e use um número de trabalho.</p></details>
+<h2 class="faq-g" data-i="curso.364">Planos e pagamento</h2>
+<details class="faq-q"><summary data-i="curso.365">O que acontece quando o teste de 7 dias termina?</summary><p data-i="curso.366">A conta volta sozinha para o plano grátis. Seus contatos continuam lá. As funções do plano pago ficam bloqueadas até você contratar.</p></details>
+<details class="faq-q"><summary data-i="curso.367">Qual a diferença entre o plano Pago e o Pago com a Mi.IA?</summary><p data-i="curso.368">O <b>Pago</b> (R$ 199,90 por ano) tem todas as ferramentas, sem a IA. O <b>Pago com a Mi.IA</b> (R$ 49,90 por mês) tem tudo isso e mais a Mi.IA atendendo seus clientes no WhatsApp.</p></details>
+<details class="faq-q"><summary data-i="curso.369">Como eu pago?</summary><p data-i="curso.370">A forma de pagamento é combinada na hora de contratar. Fale com a gente pelo chat do site ou pelo WhatsApp.</p></details>
+<details class="faq-q"><summary data-i="curso.371">Como cancelo?</summary><p data-i="curso.372">Fale com o suporte, pelo chat do site ou pelo WhatsApp, e a gente cuida disso.</p></details>
+<details class="faq-q"><summary data-i="curso.373">Preciso de nota fiscal?</summary><p data-i="curso.374">Fale com o suporte para combinar. Esse assunto é tratado direto com a gente.</p></details>
+<h2 class="faq-g" data-i="curso.375">Privacidade e segurança</h2>
+<details class="faq-q"><summary data-i="curso.376">A extensão lê as minhas conversas?</summary><p data-i="curso.377">A extensão lê apenas o número do contato da conversa aberta. Ela não lê o texto das mensagens e não envia nada sem você pedir.</p></details>
+<details class="faq-q"><summary data-i="curso.378">Então como a Mi.IA responde?</summary><p data-i="curso.379">Para responder, a Mi.IA precisa receber as mensagens que os seus clientes mandam para o seu número. Isso é feito no servidor, e o texto é usado por um serviço de inteligência artificial para montar a resposta. Cada empresa enxerga só os próprios dados.</p></details>
+<details class="faq-q"><summary data-i="curso.380">Outra empresa pode ver meus contatos?</summary><p data-i="curso.381">Não. Os contatos, anúncios e respostas de cada empresa ficam separados.</p></details>
+<details class="faq-q"><summary data-i="curso.382">Posso levar meus contatos embora?</summary><p data-i="curso.383">Sim. Você pode exportar a sua planilha quando quiser.</p></details>
+<details class="faq-q"><summary data-i="curso.384">O WhatsApp pode bloquear meu número por usar a extensão?</summary><p data-i="curso.385">A extensão não é um produto oficial do WhatsApp nem da Meta, e ferramentas desse tipo têm risco. Por isso o envio é lento, só em horário comercial e com opção de SAIR. Use um número de trabalho, comece com poucos contatos e mande só para quem espera ouvir de você.</p></details>
+<h2 class="faq-g" data-i="curso.386">Ajuda e suporte</h2>
+<details class="faq-q"><summary data-i="curso.387">Onde tiro uma dúvida que não está aqui?</summary><p data-i="curso.388">Fale com a Mi.IA no chat da página de vendas. Ela resolve dúvidas técnicas e passo a passo de instalação. Se ela não souber, ela passa para o suporte.</p></details>
+<details class="faq-q"><summary data-i="curso.389">Como descrevo um problema para o suporte?</summary><p data-i="curso.390">Conte o que você estava fazendo, o que apareceu na tela e, se puder, mande uma foto da tela. Quanto mais claro, mais rápido a gente resolve.</p></details>
 </article>
-
 <div class="done-row" id="doneRow">
-  <button class="btn btn-ok" id="doneBtn" type="button">Marcar esta aula como concluída</button>
+<button class="btn btn-ok" data-i="curso.391" id="doneBtn" type="button">Marcar esta aula como concluída</button>
 </div>
 <div class="nav">
-  <a class="btn btn-g" id="prev" href="#aula-1">Aula anterior</a>
-  <a class="btn btn-p" id="next" href="#aula-2">Próxima aula</a>
+<a class="btn btn-g" data-i="curso.392" href="#aula-1" id="prev">Aula anterior</a>
+<a class="btn btn-p" data-i="curso.393" href="#aula-2" id="next">Próxima aula</a>
 </div>
-
 </main>
 </div>
-
+<script src="/i18n/i18n.js"></script>
 <script>
 (function(){
+  var T=function(k,fb){ var v=window.MI18N?MI18N.t(k,fb):fb; return (v==null||v===k)?fb:v; };
   var lessons = Array.prototype.slice.call(document.querySelectorAll('.lesson'));
   var toc = document.getElementById('toc');
   var side = document.getElementById('side');
@@ -585,13 +530,18 @@ main{padding:44px clamp(20px,5vw,64px) 90px;max-width:900px}
   try { done = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { done = {}; }
   function save(){ try { localStorage.setItem(KEY, JSON.stringify(done)); } catch(e) {} }
 
-  lessons.forEach(function(l, i){
-    var li = document.createElement('li');
-    var a = document.createElement('a');
-    a.href = '#' + l.id.replace('l-',''); a.dataset.id = l.id;
-    a.innerHTML = '<span class="n">' + (i+1) + '</span><span>' + l.dataset.title + '</span>';
-    li.appendChild(a); toc.appendChild(li);
-  });
+  function lt(i){ return T('curso.lesson.'+(i+1), lessons[i].dataset.title); }
+  function buildToc(){
+    toc.innerHTML = '';
+    lessons.forEach(function(l, i){
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + l.id.replace('l-',''); a.dataset.id = l.id;
+      a.innerHTML = '<span class="n">' + (i+1) + '</span><span>' + lt(i) + '</span>';
+      li.appendChild(a); toc.appendChild(li);
+    });
+  }
+  buildToc();
 
   function current(){
     var h = (location.hash || '').replace('#','');
@@ -612,11 +562,11 @@ main{padding:44px clamp(20px,5vw,64px) 90px;max-width:900px}
     next.style.visibility = last ? 'hidden' : 'visible';
     next.href = !last ? '#' + lessons[idx+1].id.replace('l-','') : '#';
     var d = !!done[lessons[idx].id];
-    doneBtn.textContent = d ? 'Aula concluída (clique para desmarcar)' : 'Marcar esta aula como concluída';
+    doneBtn.textContent = d ? T('curso.js.done_on','Aula concluída (clique para desmarcar)') : T('curso.js.done_off','Marcar esta aula como concluída');
     var n = Object.keys(done).filter(function(k){ return done[k]; }).length;
-    document.getElementById('progTxt').textContent = n + ' de ' + lessons.length + ' aulas';
+    document.getElementById('progTxt').textContent = T('curso.js.prog','{n} de {N} aulas').replace('{n}', n).replace('{N}', lessons.length);
     document.getElementById('progBar').style.width = (n / lessons.length * 100) + '%';
-    document.title = lessons[idx].dataset.title + ' – Curso Mi Zap e Mi.IA';
+    document.title = lt(idx) + T('curso.js.title_suffix',' – Curso Mi Zap e Mi.IA');
     side.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false');
     window.scrollTo({top:0});
   }
@@ -629,6 +579,7 @@ main{padding:44px clamp(20px,5vw,64px) 90px;max-width:900px}
   });
   window.addEventListener('hashchange', render);
   render();
+  if(window.MI18N) MI18N.onChange(function(){ buildToc(); var y = window.scrollY; render(); window.scrollTo({top:y}); });
 })();
 </script>
 </body>

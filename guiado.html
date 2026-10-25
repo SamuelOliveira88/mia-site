@@ -1,16 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Passo a passo guiado – Mi Zap e Mi.IA</title>
-<meta name="description" content="Faça junto, uma etapa de cada vez, como numa chamada: instalar a extensão, conectar o WhatsApp, ensinar a Mi.IA e fazer a primeira campanha.">
-<meta name="robots" content="noindex">
-<meta name="theme-color" content="#1A1038">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235B3DF5'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EMi%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title data-i="guiado.head.title">Passo a passo guiado – Mi Zap e Mi.IA</title>
+<meta content="Faça junto, uma etapa de cada vez, como numa chamada: instalar a extensão, conectar o WhatsApp, ensinar a Mi.IA e fazer a primeira campanha." data-i-attr="content:guiado.head.description" name="description"/>
+<meta content="noindex" name="robots"/>
+<meta content="#1A1038" name="theme-color"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235B3DF5'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EMi%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{--paper:#F5F2FB;--paper-2:#EBE6F7;--ink:#1A1038;--ink-soft:#4A4266;--violet:#5B3DF5;--violet-deep:#3F27C4;--violet-soft:#E2DBFF;--mint:#D3F5E4;--mint-ink:#0E5C3E;--coral:#FF6B57;--amber:#FFF1CC;--amber-ink:#6B4A00;--display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -61,50 +62,48 @@ code{font:600 .92em ui-monospace,Consolas,monospace;background:var(--paper-2);pa
 @media (max-width:560px){body{font-size:18px}.card{padding:22px 18px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
-<script defer src="/_vercel/insights/script.js"></script>
+<script defer="" src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-<div class="top"><a class="logo" href="/">Mi<i></i>IA</a><span class="t">Passo a passo guiado</span><a class="l" href="/curso">Ver o curso completo</a></div>
+<div class="top"><a class="logo" href="/">Mi<i></i>IA</a><span class="t" data-i="guiado.001">Passo a passo guiado</span><span data-lang-sw style="margin-left:auto;color:#CFC8EA"></span><a class="l" style="margin-left:14px" data-i="guiado.002" href="/curso">Ver o curso completo</a></div>
 <main class="wrap">
-  <section class="hero" id="home">
-    <h1>Vamos fazer juntos, uma etapa de cada vez.</h1>
-    <p>É como numa chamada: eu te digo o que fazer, você faz e aperta <b>“Fiz, próximo”</b>. Só aparece a próxima etapa quando você terminar a anterior.</p>
-    <p>Se travar, aperte <b>“Travei”</b> e eu mostro o que costuma resolver. Você pode parar e voltar depois: o sistema lembra onde você estava.</p>
-    <div class="blocks" id="blocks"></div>
-    <button class="btn" id="go">Começar do início</button>
-    <button class="btn sec" id="resume" style="display:none">Continuar de onde parei</button>
-  </section>
-
-  <section class="stepper" id="stepper" aria-live="polite">
-    <div class="meta"><span id="where"></span><button class="btn sec" id="home2" style="min-height:40px;padding:8px 16px;font-size:.9rem">Menu</button></div>
-    <div class="pbar"><b id="pb"></b></div>
-    <div class="card" id="card">
-      <span class="tag" id="tag"></span>
-      <h2 id="ttl"></h2>
-      <p class="fala" id="fala"></p>
-      <div class="ver"><b>O que deve aparecer na tela</b><span id="ver"></span></div>
-      <div class="trv" id="trv"><b>Se travou</b><span id="trvt"></span></div>
-      <div class="row">
-        <button class="btn sec" id="back">Voltar</button>
-        <button class="btn warn" id="stuck">Travei</button>
-        <button class="btn" id="next">Fiz, próximo</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="end" id="end">
-    <div class="card ok">
-      <span class="tag">Etapa concluída</span>
-      <h2 id="endt"></h2>
-      <p class="fala" id="endp"></p>
-      <div class="row"><button class="btn" id="endnext"></button><button class="btn sec" id="endmenu">Voltar ao menu</button></div>
-    </div>
-  </section>
+<section class="hero" id="home">
+<h1 data-i="guiado.003">Vamos fazer juntos, uma etapa de cada vez.</h1>
+<p data-i="guiado.004">É como numa chamada: eu te digo o que fazer, você faz e aperta <b>“Fiz, próximo”</b>. Só aparece a próxima etapa quando você terminar a anterior.</p>
+<p data-i="guiado.005">Se travar, aperte <b>“Travei”</b> e eu mostro o que costuma resolver. Você pode parar e voltar depois: o sistema lembra onde você estava.</p>
+<div class="blocks" id="blocks"></div>
+<button class="btn" data-i="guiado.006" id="go">Começar do início</button>
+<button class="btn sec" data-i="guiado.007" id="resume" style="display:none">Continuar de onde parei</button>
+</section>
+<section aria-live="polite" class="stepper" id="stepper">
+<div class="meta"><span id="where"></span><button class="btn sec" data-i="guiado.008" id="home2" style="min-height:40px;padding:8px 16px;font-size:.9rem">Menu</button></div>
+<div class="pbar"><b id="pb"></b></div>
+<div class="card" id="card">
+<span class="tag" id="tag"></span>
+<h2 id="ttl"></h2>
+<p class="fala" id="fala"></p>
+<div class="ver"><b data-i="guiado.009">O que deve aparecer na tela</b><span id="ver"></span></div>
+<div class="trv" id="trv"><b data-i="guiado.010">Se travou</b><span id="trvt"></span></div>
+<div class="row">
+<button class="btn sec" data-i="guiado.011" id="back">Voltar</button>
+<button class="btn warn" data-i="guiado.012" id="stuck">Travei</button>
+<button class="btn" data-i="guiado.013" id="next">Fiz, próximo</button>
+</div>
+</div>
+</section>
+<section class="end" id="end">
+<div class="card ok">
+<span class="tag" data-i="guiado.014">Etapa concluída</span>
+<h2 id="endt"></h2>
+<p class="fala" id="endp"></p>
+<div class="row"><button class="btn" id="endnext"></button><button class="btn sec" data-i="guiado.015" id="endmenu">Voltar ao menu</button></div>
+</div>
+</section>
 </main>
-
+<script src="/i18n/i18n.js"></script>
 <script>
 (function(){
-var BL=[
+var BL_PT=[
  {n:'Instalar a extensão',s:'Cerca de 5 minutos',fim:'A extensão está instalada.',steps:[
   ['Antes de começar','Vamos instalar a extensão. Você precisa estar no <b>computador</b>, usando o <b>Google Chrome</b>. No celular não funciona. Tenha em mãos o arquivo <code>.zip</code> que veio junto com o convite.','Você já está com o Chrome aberto no computador e sabe onde está o arquivo .zip.','Se não achou o arquivo, procure na pasta Downloads ou no e-mail do convite. Se não tem o arquivo, peça de novo a quem te convidou.'],
   ['Salve o arquivo .zip','Coloque o arquivo numa pasta fácil de achar, como a <b>Área de trabalho</b>.','O arquivo .zip aparece na sua Área de trabalho.','Se o arquivo abriu sozinho ou sumiu, procure por ele na pasta Downloads e arraste para a Área de trabalho.'],
@@ -143,6 +142,9 @@ var BL=[
   ['Ative a campanha','Quando estiver tudo conferido, clique em <b>Ativar</b>. Os envios começam respeitando o horário e o ritmo de 1 por minuto.','A campanha aparece como ativa e as mensagens começam a sair no horário permitido.','Se for fora do horário (domingo ou depois das 19h), ela espera e começa no próximo horário permitido.']
  ]}
 ];
+var T=function(k,fb){ var v=window.MI18N?MI18N.t(k,fb):fb; return (v==null||v===k)?fb:v; };
+function blocks(){ var b=(window.MI18N&&MI18N.lang!=='pt')?MI18N.t('guiado.blocks',null):null; return Array.isArray(b)?b:BL_PT; }
+var BL=blocks();
 var KEY='guiado_mia_pos', DONE='guiado_mia_ok';
 function rd(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 function wr(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
@@ -150,20 +152,21 @@ var pos=rd(KEY,null), done=rd(DONE,{});
 var b=0,s=0;
 var $=function(i){return document.getElementById(i)};
 function home(){ $('home').style.display='block'; $('stepper').classList.remove('on'); $('end').classList.remove('on');
-  var h=''; BL.forEach(function(x,i){ h+='<button class="blk'+(done[i]?' done':'')+'" data-b="'+i+'"><span class="n">'+(done[i]?'✓':(i+1))+'</span><span><b>'+x.n+'</b><small>'+x.s+' · '+x.steps.length+' etapas</small></span></button>'; });
+  var h=''; BL.forEach(function(x,i){ h+='<button class="blk'+(done[i]?' done':'')+'" data-b="'+i+'"><span class="n">'+(done[i]?'✓':(i+1))+'</span><span><b>'+x.n+'</b><small>'+x.s+' · '+x.steps.length+' '+T('guiado.js.steps','etapas')+'</small></span></button>'; });
   $('blocks').innerHTML=h;
   Array.prototype.forEach.call(document.querySelectorAll('.blk'),function(el){ el.onclick=function(){ b=+el.getAttribute('data-b'); s=0; show(); }; });
   $('resume').style.display=pos?'inline-flex':'none'; window.scrollTo(0,0); }
 function show(){ var B=BL[b], st=B.steps[s]; $('home').style.display='none'; $('end').classList.remove('on'); $('stepper').classList.add('on');
-  $('where').textContent='Bloco '+(b+1)+' de '+BL.length+' · Etapa '+(s+1)+' de '+B.steps.length;
+  $('where').textContent=T('guiado.js.where','Bloco {b} de {B} · Etapa {s} de {S}').replace('{b}',b+1).replace('{B}',BL.length).replace('{s}',s+1).replace('{S}',B.steps.length);
   $('pb').style.width=((s)/B.steps.length*100)+'%';
   $('tag').textContent=B.n; $('ttl').textContent=st[0]; $('fala').innerHTML=st[1]; $('ver').innerHTML=st[2]; $('trvt').innerHTML=st[3]; $('trv').classList.remove('on');
-  $('back').disabled=(s===0); $('next').textContent=(s===B.steps.length-1)?'Fiz, concluir':'Fiz, próximo';
+  $('back').disabled=(s===0); $('next').textContent=(s===B.steps.length-1)?T('guiado.js.finish','Fiz, concluir'):T('guiado.js.next','Fiz, próximo');
   pos={b:b,s:s}; wr(KEY,pos); window.scrollTo(0,0); $('ttl').focus&&0; }
-function fim(){ var B=BL[b]; done[b]=1; wr(DONE,done); pos=null; try{localStorage.removeItem(KEY)}catch(e){}
-  $('stepper').classList.remove('on'); $('end').classList.add('on'); $('endt').textContent=B.fim;
-  var last=(b===BL.length-1); $('endp').textContent=last?'Você fez tudo: instalou, conectou, ensinou a Mi.IA e criou sua primeira campanha. Se surgir qualquer dúvida, pergunte para a Mi.IA no chat do site ou pelo WhatsApp.':'Muito bem! Quando quiser, vamos para o próximo bloco.';
-  $('endnext').textContent=last?'Ver o curso completo':'Próximo bloco'; $('endnext').onclick=function(){ if(last){ location.href='/curso'; } else { b++; s=0; show(); } }; window.scrollTo(0,0); }
+function endView(){ var B=BL[b]; $('endt').textContent=B.fim;
+  var last=(b===BL.length-1); $('endp').textContent=last?T('guiado.js.all_done','Você fez tudo: instalou, conectou, ensinou a Mi.IA e criou sua primeira campanha. Se surgir qualquer dúvida, pergunte para a Mi.IA no chat do site ou pelo WhatsApp.'):T('guiado.js.well_done','Muito bem! Quando quiser, vamos para o próximo bloco.');
+  $('endnext').textContent=last?T('guiado.js.see_course','Ver o curso completo'):T('guiado.js.next_block','Próximo bloco'); $('endnext').onclick=function(){ if(last){ location.href='/curso'; } else { b++; s=0; show(); } }; }
+function fim(){ done[b]=1; wr(DONE,done); pos=null; try{localStorage.removeItem(KEY)}catch(e){}
+  $('stepper').classList.remove('on'); $('end').classList.add('on'); endView(); window.scrollTo(0,0); }
 $('next').onclick=function(){ if(s<BL[b].steps.length-1){ s++; show(); } else fim(); };
 $('back').onclick=function(){ if(s>0){ s--; show(); } };
 $('stuck').onclick=function(){ $('trv').classList.toggle('on'); };
@@ -171,6 +174,7 @@ $('home2').onclick=home; $('endmenu').onclick=home;
 $('go').onclick=function(){ b=0; s=0; show(); };
 $('resume').onclick=function(){ if(pos){ b=pos.b; s=pos.s; show(); } };
 home();
+if(window.MI18N) MI18N.onChange(function(){ BL=blocks(); var y=window.scrollY; if($('stepper').classList.contains('on')){ show(); } else if($('end').classList.contains('on')){ endView(); } else { home(); } window.scrollTo(0,y); });
 })();
 </script>
 </body>
