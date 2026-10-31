@@ -350,7 +350,7 @@ footer p{max-width:60ch}
       <li><h3>Ajuste e ligue</h3><p>Escolha o tom da Mi.IA, cadastre seus empreendimentos e ative. Ela já começa a atender.</p></li>
     </ol>
     <p style="text-align:center;margin-top:28px">
-      <a class="btn" href="/MiZap.zip" download="MiZap.zip" style="display:inline-block;padding:14px 28px;border-radius:12px;background:#00a884;color:#fff;font-weight:700;text-decoration:none">⬇ Baixar o Mi Zap (versão 0.9.0)</a><br>
+      <a class="btn" href="https://chromewebstore.google.com/detail/mi-zap/pahhddehblggncjabjfphcfokpadihmc" target="_blank" rel="noopener" style="display:inline-block;padding:14px 28px;border-radius:12px;background:#00a884;color:#fff;font-weight:700;text-decoration:none">Instalar o Mi Zap na loja do Chrome</a><br>
       <a href="/Mi-Zap-Guia-Passo-a-Passo.pdf" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-weight:600">Guia em PDF, passo a passo para quem nunca usou</a><br>
       <small>Novo: cadastre as empresas com que você trabalha e anexe os documentos de cada uma. Dentro do arquivo tem o LEIA-ME-PRIMEIRO com a instalação.</small>
     </p>
@@ -664,7 +664,7 @@ footer p{max-width:60ch}
   var started=false, busy=false;
   function linkify(el,t){ var re=/(https?:\/\/[^\s]+[^\s.,;:!?)])/g, last=0, m; t=String(t);
     while((m=re.exec(t))){ if(m.index>last) el.appendChild(document.createTextNode(t.slice(last,m.index)));
-      var a=document.createElement('a'); a.href=m[1]; a.target='_blank'; a.rel='noopener'; if(m[1].indexOf('.zip')>0) a.setAttribute('download','MiZap.zip'); a.textContent=m[1].indexOf('.zip')>0?'⬇ Baixar a extensão Mi Zap':m[1].indexOf('.pdf')>0?'Baixar o curso (PDF)':(m[1].indexOf('/guiado')>0?'Abrir o passo a passo guiado':(m[1].indexOf('/curso')>0?'Abrir o curso':m[1])); a.style.cssText='color:inherit;font-weight:700;text-decoration:underline'; el.appendChild(a); last=re.lastIndex; }
+      var a=document.createElement('a'); a.href=(m[1].indexOf('.zip')>0?'https://chromewebstore.google.com/detail/mi-zap/pahhddehblggncjabjfphcfokpadihmc':m[1]); a.target='_blank'; a.rel='noopener'; a.textContent=m[1].indexOf('.zip')>0?'Instalar o Mi Zap na loja do Chrome':m[1].indexOf('.pdf')>0?'Baixar o curso (PDF)':(m[1].indexOf('/guiado')>0?'Abrir o passo a passo guiado':(m[1].indexOf('/curso')>0?'Abrir o curso':m[1])); a.style.cssText='color:inherit;font-weight:700;text-decoration:underline'; el.appendChild(a); last=re.lastIndex; }
     if(last<t.length) el.appendChild(document.createTextNode(t.slice(last))); }
   function add(t,who){ var d=document.createElement('div'); d.className='mc-m '+who; if(who==='bot'){ linkify(d,t); } else { d.textContent=t; } box.insertBefore(d,dots); box.scrollTop=box.scrollHeight; }
   function setChips(r){ var l; if(/feito|avisa|me diz|me conta|conseguiu|encontrou|clique|abra|digite|escolha|ligue/i.test(r)||/MiZap\.zip/.test(r)) l=['Feito ✅','Travei 😕','Não entendi']; else l=['Quero instalar','Quanto custa?','Como funciona?'];
